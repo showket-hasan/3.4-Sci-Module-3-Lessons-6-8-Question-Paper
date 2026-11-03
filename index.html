@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Academic Reading: Paper 1 - Foundations of Electromagnetic Radiation and Wave Dynamics</title>
+    <style>
+        :root {
+            --primary-navy: #0b2545;
+            --secondary-blue: #134074;
+            --accent-gold: #c59b27;
+            --bg-parchment: #fcfbf9;
+            --card-bg: #ffffff;
+            --border-color: #d1d5db;
+            --text-dark: #1f2937;
+            --text-muted: #4b5563;
+            --correct-green: #15803d;
+            --correct-bg: #dcfce7;
+            --incorrect-red: #b91c1c;
+            --incorrect-bg: #fee2e2;
+            --highlight-yellow: #fef08a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            background-color: #f3f4f6;
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Top Header */
+        header.test-header {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-bottom: 3px solid var(--accent-gold);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-title-box h1 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        .header-title-box p {
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            font-style: italic;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .timer-display {
+            background: #001220;
+            border: 1px solid var(--accent-gold);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #fbbf24;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .timer-warning {
+            color: #ef4444 !important;
+            border-color: #ef4444 !important;
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { opacity: 1; }
+            to { opacity: 0.6; }
+        }
+
+        .btn {
+            font-family: 'Times New Roman', Times, serif;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: #0b2545;
+            border-color: #b0881e;
+        }
+        .btn-gold:hover {
+            background-color: #d8aa2b;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border-color: #cbd5e1;
+        }
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-blue);
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: #0f3057;
+        }
+
+        .btn-secondary {
+            background-color: #4b5563;
+            color: #ffffff;
+        }
+
+        /* Navigation Bar */
+        nav.passage-nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+        }
+
+        .tab-btn {
+            font-family: 'Times New Roman', Times, serif;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px 4px 0 0;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: var(--bg-parchment);
+            color: var(--primary-navy);
+            border-color: var(--secondary-blue);
+            border-bottom: 2px solid var(--secondary-blue);
+        }
+
+        .nav-tools {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Main Test Layout (Split Screen) */
+        main.test-container {
+            display: flex;
+            height: calc(100vh - 135px);
+            overflow: hidden;
+            background-color: var(--bg-parchment);
+        }
+
+        .pane {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px 32px;
+            scrollbar-width: thin;
+        }
+
+        .pane-passage {
+            background-color: #ffffff;
+            border-right: 2px solid #e5e7eb;
+        }
+
+        .pane-questions {
+            background-color: #fcfbf9;
+        }
+
+        /* Passage Styling */
+        .passage-header {
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-navy);
+            padding-bottom: 12px;
+        }
+
+        .passage-tag {
+            display: inline-block;
+            background: var(--primary-navy);
+            color: #ffffff;
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .passage-header h2 {
+            font-size: 1.5rem;
+            color: var(--primary-navy);
+            margin-bottom: 4px;
+        }
+
+        .passage-header p.subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .passage-body p {
+            margin-bottom: 16px;
+            text-align: justify;
+            text-justify: inter-word;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .passage-body p.paragraph {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .p-marker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+            color: var(--primary-navy);
+            background: #e2e8f0;
+            padding: 0 5px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+
+        /* Diagrams & Visuals in Passages */
+        .academic-figure {
+            margin: 24px 0;
+            padding: 16px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            text-align: center;
+        }
+
+        .academic-figure figcaption {
+            margin-top: 10px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .academic-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.92rem;
+            background: #ffffff;
+        }
+
+        .academic-table th, .academic-table td {
+            border: 1px solid #cbd5e1;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .academic-table th {
+            background-color: #f1f5f9;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .academic-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Clean Error-Free Scientific Formula Box (No LaTeX) */
+        .formula-callout {
+            background-color: #f0fdf4;
+            border-left: 4px solid var(--correct-green);
+            padding: 14px 20px;
+            margin: 18px 0;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .formula-callout strong {
+            color: #166534;
+            font-size: 1.05rem;
+        }
+
+        .formula-display {
+            display: block;
+            margin: 8px 0;
+            padding: 10px 16px;
+            background: #ffffff;
+            border: 1px solid #bbf7d0;
+            border-radius: 4px;
+            font-size: 1.15rem;
+            color: #0b2545;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* Question Booklet Styling */
+        .question-section-banner {
+            background: #edf2f7;
+            border-left: 4px solid var(--secondary-blue);
+            padding: 10px 14px;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .question-section-banner h3 {
+            font-size: 1.1rem;
+            color: var(--primary-navy);
+            margin-bottom: 4px;
+        }
+
+        .question-section-banner p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: border-color 0.2s;
+        }
+
+        .question-card:hover {
+            border-color: #94a3b8;
+        }
+
+        .question-card.answered {
+            border-left: 4px solid var(--secondary-blue);
+        }
+
+        .question-num {
+            font-weight: bold;
+            color: var(--primary-navy);
+            margin-right: 6px;
+        }
+
+        .question-text {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        /* Radio & Input Controls */
+        .options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.15s;
+            font-size: 0.95rem;
+        }
+
+        .option-label:hover {
+            background-color: #f1f5f9;
+        }
+
+        .option-label input[type="radio"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
+        .text-input-field {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 0.95rem;
+            padding: 6px 10px;
+            border: 1px solid #94a3b8;
+            border-radius: 4px;
+            width: 240px;
+            background: #ffffff;
+        }
+
+        .text-input-field:focus {
+            outline: none;
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 2px rgba(19, 64, 116, 0.2);
+        }
+
+        .select-input-field {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 0.95rem;
+            padding: 6px 10px;
+            border: 1px solid #94a3b8;
+            border-radius: 4px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        /* Review Mode Explanation Styling */
+        .explanation-box {
+            display: none;
+            margin-top: 12px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 4px;
+            border-left: 3px solid #64748b;
+            font-size: 0.88rem;
+        }
+
+        .review-mode .explanation-box {
+            display: block;
+        }
+
+        .user-correct {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-green) !important;
+        }
+
+        .user-incorrect {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-red) !important;
+        }
+
+        /* Bottom Status Bar */
+        footer.test-footer {
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            padding: 8px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 90;
+            box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+        }
+
+        .palette-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .palette-toggle-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .palette-grid {
+            display: none;
+            position: fixed;
+            bottom: 50px;
+            right: 24px;
+            width: 360px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+            max-height: 280px;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .palette-grid.open {
+            display: block;
+        }
+
+        .grid-numbers {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .grid-btn {
+            font-family: 'Times New Roman', Times, serif;
+            width: 34px;
+            height: 32px;
+            border: 1px solid var(--border-color);
+            background: #f8fafc;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-btn.filled {
+            background: var(--secondary-blue);
+            color: #ffffff;
+            border-color: var(--secondary-blue);
+        }
+
+        /* Vocabulary Drawer */
+        .vocab-drawer {
+            position: fixed;
+            top: 60px;
+            right: -420px;
+            width: 400px;
+            height: calc(100vh - 120px);
+            background: #ffffff;
+            border-left: 2px solid var(--accent-gold);
+            box-shadow: -4px 0 12px rgba(0,0,0,0.15);
+            transition: right 0.3s ease;
+            z-index: 150;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vocab-drawer.open {
+            right: 0;
+        }
+
+        .vocab-header {
+            background: var(--primary-navy);
+            color: #ffffff;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vocab-list {
+            padding: 16px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .vocab-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+
+        .vocab-term {
+            font-weight: bold;
+            color: var(--secondary-blue);
+            font-size: 1rem;
+        }
+
+        .vocab-thai {
+            color: #b45309;
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+
+        .vocab-def {
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            margin-top: 4px;
+        }
+
+        /* ========================================================
+           FULL AUTOMATED GRADING REPORT IN TIMES NEW ROMAN 10PT
+           ======================================================== */
+        .report-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(11, 37, 69, 0.85);
+            z-index: 300;
+            overflow-y: auto;
+            padding: 30px 16px;
+            font-family: 'Times New Roman', Times, Georgia, serif;
+            font-size: 10pt;
+            line-height: 1.4;
+        }
+
+        .report-overlay.open {
+            display: block;
+        }
+
+        .report-sheet {
+            background: #ffffff;
+            max-width: 960px;
+            margin: 0 auto;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            padding: 36px 44px;
+            color: #111827;
+            position: relative;
+        }
+
+        .report-header-banner {
+            border-bottom: 2px solid var(--primary-navy);
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .school-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .program-title {
+            font-size: 11pt;
+            color: var(--secondary-blue);
+            font-weight: bold;
+            margin-top: 2px;
+        }
+
+        .report-main-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #9a3412;
+            margin-top: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .report-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 16px 0;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 9.5pt;
+        }
+
+        .meta-field strong {
+            color: var(--primary-navy);
+            display: block;
+            font-size: 8.5pt;
+            text-transform: uppercase;
+        }
+
+        /* Scorecard Visual Banner */
+        .executive-scorecard {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 20px;
+            align-items: center;
+            background: #fdfaf6;
+            border: 2px solid var(--accent-gold);
+            border-radius: 6px;
+            padding: 18px 24px;
+            margin-bottom: 24px;
+        }
+
+        .band-badge-box {
+            text-align: center;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 14px 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .band-badge-box .band-val {
+            font-size: 32pt;
+            font-weight: bold;
+            color: var(--correct-green);
+            line-height: 1;
+        }
+
+        .band-badge-box .band-label {
+            font-size: 9.5pt;
+            font-weight: bold;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .band-desc-box {
+            font-size: 10pt;
+        }
+
+        .band-desc-box h3 {
+            font-size: 12pt;
+            color: var(--primary-navy);
+            margin-bottom: 6px;
+        }
+
+        .progress-bar-container {
+            background: #e2e8f0;
+            height: 14px;
+            border-radius: 7px;
+            overflow: hidden;
+            margin: 8px 0;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            background: linear-gradient(90deg, #134074, #15803d);
+            height: 100%;
+            width: 0%;
+            transition: width 1s ease;
+        }
+
+        /* Academic Sub-Score & Audit Tables in 10pt */
+        .report-section-title {
+            font-size: 11pt;
+            font-weight: bold;
+            color: var(--primary-navy);
+            border-bottom: 1.5px solid #cbd5e1;
+            padding-bottom: 4px;
+            margin: 20px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10pt;
+            margin-bottom: 18px;
+            background: #ffffff;
+        }
+
+        .report-table th, .report-table td {
+            border: 1px solid #cbd5e1;
+            padding: 6px 10px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .report-table th {
+            background: #f1f5f9;
+            color: var(--primary-navy);
+            font-weight: bold;
+            font-size: 9.5pt;
+        }
+
+        .report-table tr:nth-child(even) {
+            background: #fafaf9;
+        }
+
+        .audit-correct {
+            background-color: #f0fdf4 !important;
+        }
+
+        .audit-incorrect {
+            background-color: #fff1f2 !important;
+        }
+
+        .badge-correct {
+            color: #15803d;
+            font-weight: bold;
+        }
+
+        .badge-incorrect {
+            color: #b91c1c;
+            font-weight: bold;
+        }
+
+        .report-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 24px;
+            border-top: 1px solid #cbd5e1;
+            padding-top: 16px;
+        }
+
+        @media print {
+            body {
+                background: #ffffff;
+            }
+            header.test-header, nav.passage-nav, main.test-container, footer.test-footer {
+                display: none !important;
+            }
+            .report-overlay {
+                position: static !important;
+                background: none !important;
+                padding: 0 !important;
+                display: block !important;
+            }
+            .report-sheet {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+            .report-actions {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="test-header">
+        <div class="header-title-box">
+            <h1>IELTS Academic Reading: Paper 1</h1>
+            <p>Module 3: Foundations of Electromagnetic Radiation and Wave Dynamics (Lessons 6, 7 &amp; 8) • SMBP Grade 9 Science</p>
+        </div>
+        <div class="header-controls">
+            <div class="timer-display" id="timerBox" title="60-Minute Official Time Window">
+                <span>⏱</span> <span id="timerText">60:00</span>
+            </div>
+            <button class="btn btn-outline" id="vocabToggleBtn" title="Thai Bilingual Vocabulary Guide">📖 Vocabulary Bank</button>
+            <button class="btn btn-gold" id="submitTopBtn">Submit Test &amp; Generate Report</button>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="passage-nav">
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-passage="1">Passage 1: EM Spectrum (Q1–13)</button>
+            <button class="tab-btn" data-passage="2">Passage 2: Light &amp; Matter (Q14–26)</button>
+            <button class="tab-btn" data-passage="3">Passage 3: Wave Dichotomy (Q27–40)</button>
+        </div>
+        <div class="nav-tools">
+            <span class="badge" id="progressBadge">0 / 40 Answered</span>
+            <button class="palette-toggle-btn" id="openPaletteBtn">Question Palette ▾</button>
+        </div>
+    </nav>
+
+    <!-- Main Container: Split View -->
+    <main class="test-container">
+
+        <!-- Left Pane: Passages -->
+        <section class="pane pane-passage" id="passagePane">
+            
+            <!-- PASSAGE 1 -->
+            <article class="passage-content" id="passage1">
+                <div class="passage-header">
+                    <span class="passage-tag">Reading Passage 1 • Science Module 3 Lesson 6</span>
+                    <h2>The Electromagnetic Spectrum and Cosmic Energy Distribution</h2>
+                    <p class="subtitle">You should spend about 20 minutes on Questions 1–13, which are based on Reading Passage 1 below.</p>
+                </div>
+
+                <div class="passage-body">
+                    <p class="paragraph"><span class="p-marker">A</span> Throughout the universe, energy flows across vast reaches of interstellar vacuum in the form of electromagnetic radiation. Unlike sound or oceanic tremors, which depend upon physical matter to propagate, electromagnetic waves are oscillations of electric and magnetic fields that travel freely through completely empty space at the universal speed of light (c ≈ 3.0 × 10<sup>8</sup> meters per second). Everything we see—from distant constellations to the glowing filament of a lamp—originates from luminous objects that emit electromagnetic waves. Yet human vision can register only an infinitesimal fraction of this cosmic radiation: the narrow band known as visible light.</p>
+
+                    <p class="paragraph"><span class="p-marker">B</span> The complete continuum of radiant energy is termed the electromagnetic spectrum. It comprises seven primary subdivisions, arranged in a continuous gradient according to wavelength and wave frequency. Wavelength represents the physical distance between two consecutive wave crests, whereas frequency denotes the count of waves that cycle past a fixed reference point every second. Because all electromagnetic waves maintain an identical speed when traversing a vacuum, wavelength and frequency exhibit a strict inverse relationship: as wavelength becomes progressively shorter, wave frequency necessarily increases. Crucially, higher-frequency waves pack far higher quantities of photon energy than their low-frequency counterparts.</p>
+
+                    <!-- SVG 1: Electromagnetic Spectrum Diagram -->
+                    <div class="academic-figure">
+                        <svg viewBox="0 0 760 220" width="100%" height="210" xmlns="http://www.w3.org/2000/svg" style="background:#fcfbf9; border-radius:4px;">
+                            <defs>
+                                <linearGradient id="spectrumGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#4a5568" />
+                                    <stop offset="25%" stop-color="#b45309" />
+                                    <stop offset="45%" stop-color="#dc2626" />
+                                    <stop offset="48%" stop-color="#ea580c" />
+                                    <stop offset="50%" stop-color="#ca8a04" />
+                                    <stop offset="52%" stop-color="#16a34a" />
+                                    <stop offset="54%" stop-color="#0284c7" />
+                                    <stop offset="56%" stop-color="#7c3aed" />
+                                    <stop offset="70%" stop-color="#6d28d9" />
+                                    <stop offset="88%" stop-color="#4338ca" />
+                                    <stop offset="100%" stop-color="#1e1b4b" />
+                                </linearGradient>
+                            </defs>
+                            <text x="380" y="22" font-family="'Times New Roman', serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#0b2545">THE ELECTROMAGNETIC SPECTRUM: CONTINUUM OF ENERGY</text>
+                            
+                            <!-- Spectrum Bar -->
+                            <rect x="30" y="40" width="700" height="36" fill="url(#spectrumGradient)" rx="4" stroke="#64748b" stroke-width="1.5" />
+                            
+                            <!-- Wave Labels -->
+                            <g font-family="'Times New Roman', serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">
+                                <text x="75" y="62">Radio</text>
+                                <text x="180" y="62">Microwave</text>
+                                <text x="290" y="62">Infrared</text>
+                                <text x="380" y="62">Visible</text>
+                                <text x="470" y="62">Ultraviolet</text>
+                                <text x="575" y="62">X-Rays</text>
+                                <text x="675" y="62">Gamma</text>
+                            </g>
+
+                            <!-- Wavelength & Frequency Indicators -->
+                            <path d="M 35 105 L 725 105" stroke="#0b2545" stroke-width="1.8" />
+                            <text x="380" y="100" font-family="'Times New Roman', serif" font-size="11" fill="#0b2545" text-anchor="middle">Increasing Frequency (f) &amp; Photon Energy (E) ➔</text>
+                            <text x="40" y="125" font-family="'Times New Roman', serif" font-size="11" fill="#475569">Wavelength: &gt; 30 cm</text>
+                            <text x="380" y="125" font-family="'Times New Roman', serif" font-size="11" fill="#475569" text-anchor="middle">700 nm – 400 nm</text>
+                            <text x="720" y="125" font-family="'Times New Roman', serif" font-size="11" fill="#475569" text-anchor="end">&lt; 0.01 nm</text>
+                            
+                            <!-- Sinusoidal Waves Representation -->
+                            <path d="M 35 165 Q 80 145, 125 165 T 215 165 T 305 165 T 380 165 T 440 165 T 490 165 T 535 165 T 575 165 T 610 165 T 640 165 T 665 165 T 685 165 T 705 165 T 725 165" fill="none" stroke="#2563eb" stroke-width="2" />
+                            <text x="380" y="195" font-family="'Times New Roman', serif" font-size="11" font-style="italic" fill="#64748b" text-anchor="middle">Wavelength (λ) compresses from left to right as oscillations per second increase.</text>
+                        </svg>
+                        <figcaption>Figure 1.1: The continuous electromagnetic spectrum from low-frequency radio waves to high-energy gamma radiation.</figcaption>
+                    </div>
+
+                    <p class="paragraph"><span class="p-marker">C</span> Anchoring the low-energy extreme are radio waves. Having wavelengths exceeding 30 centimeters and extending to thousands of meters, radio waves possess the lowest frequencies in the spectrum. Because their elongated wavelengths bend easily around terrestrial obstructions, they serve as the backbone for television broadcasts, maritime navigation, and amplitude/frequency modulation (AM/FM) radio systems. Immediately adjacent are microwaves, ranging from approximately one millimeter to 30 centimeters. Owing to their ability to penetrate rain and cloud cover, microwaves transmit cellular telephone communications, relay satellite telemetry, and excite water molecules in food within domestic microwave ovens.</p>
+
+                    <p class="paragraph"><span class="p-marker">D</span> Moving further up the energy scale, infrared waves span from roughly one millimeter down to 700 nanometers (1 nm = 10<sup>-9</sup> m). Although invisible to the unaided human eye, infrared radiation is readily detected by human skin as radiant heat. The Sun pours enormous quantities of infrared radiation toward Earth, warming the planetary crust and driving global meteorological cycles. Optical visible light occupies the thin intermediate interval between 700 nanometers (red light, lowest visible frequency) and 400 nanometers (violet light, highest visible frequency). This narrow slice is the sole window that human retinal photoreceptors are biologically configured to process.</p>
+
+                    <p class="paragraph"><span class="p-marker">E</span> Beyond the violet frontier lies ultraviolet (UV) radiation (wavelengths: 400 nm to 10 nm). Because UV waves carry substantial photon energy, they can rupture chemical bonds, stimulate melanin pigmentation in human epidermis, or induce severe cellular sunburns. Fortunately, the gaseous ozone layer (O<sub>3</sub>) within Earth’s stratosphere absorbs the vast majority of lethal short-wavelength solar UV radiation before it strikes the ground. Next in frequency are X-rays (10 nm down to 0.01 nm). Possessing enough energy to penetrate low-density organic muscle and skin tissues while being halted by dense calcium-rich bones, X-rays are indispensable tools in orthopedic medicine and airport security scanners.</p>
+
+                    <p class="paragraph"><span class="p-marker">F</span> At the absolute apex of the spectrum reside gamma rays, characterized by sub-atomic wavelengths shorter than 0.01 nm and astronomical frequencies. Gamma rays are generated by high-energy nuclear events, including radioactive decay inside atomic nuclei, supernova explosions, and pulsar collisions. Their intense ionizing energy renders them lethal to biological tissue; however, when controlled with stereotactic precision by medical physicists, focused gamma-knife radiation beams are utilized to destroy malignant cancer tumors without requiring invasive surgical incisions.</p>
+
+                    <table class="academic-table">
+                        <thead>
+                            <tr>
+                                <th>Wave Classification</th>
+                                <th>Typical Wavelength</th>
+                                <th>Photon Energy Level</th>
+                                <th>Primary Technological / Natural Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Radio Waves</strong></td>
+                                <td>&gt; 30 cm</td>
+                                <td>Lowest</td>
+                                <td>Telecommunication, wireless radio, TV broadcast</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Microwaves</strong></td>
+                                <td>1 mm – 30 cm</td>
+                                <td>Low</td>
+                                <td>Cellular telephony, radar tracking, culinary heating</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Infrared (IR)</strong></td>
+                                <td>700 nm – 1 mm</td>
+                                <td>Moderate-Low</td>
+                                <td>Thermal radiant heating, remote control devices</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Visible Light</strong></td>
+                                <td>400 nm – 700 nm</td>
+                                <td>Moderate</td>
+                                <td>Human vision, botanical photosynthesis</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ultraviolet (UV)</strong></td>
+                                <td>10 nm – 400 nm</td>
+                                <td>Moderate-High</td>
+                                <td>Vitamin D synthesis, sterilization; causes sunburn</td>
+                            </tr>
+                            <tr>
+                                <td><strong>X-Rays</strong></td>
+                                <td>0.01 nm – 10 nm</td>
+                                <td>High</td>
+                                <td>Orthopedic radiography, luggage inspection</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gamma Rays</strong></td>
+                                <td>&lt; 0.01 nm</td>
+                                <td>Highest</td>
+                                <td>Radiotherapy for oncology, nuclear reactions</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="formula-callout">
+                        <strong>Governing Scientific Law: The Universal Wave Equation</strong>
+                        <div class="formula-display">c = f × λ &nbsp; (or &nbsp; λ = c / f)</div>
+                        Where <strong>c</strong> represents the constant vacuum velocity of light (3.0 × 10<sup>8</sup> m/s), <strong>f</strong> is wave frequency in Hertz (Hz), and <strong>λ (lambda)</strong> is wavelength in meters. Because light velocity in a vacuum is invariant, frequency and wavelength maintain an exact inverse proportion.
+                    </div>
+                </div>
+            </article>
+
+            <!-- PASSAGE 2 -->
+            <article class="passage-content" id="passage2" style="display:none;">
+                <div class="passage-header">
+                    <span class="passage-tag">Reading Passage 2 • Science Module 3 Lesson 7</span>
+                    <h2>Attenuation, Photometric Intensity, and Atmospheric Chromatics</h2>
+                    <p class="subtitle">You should spend about 20 minutes on Questions 14–26, which are based on Reading Passage 2 below.</p>
+                </div>
+
+                <div class="passage-body">
+                    <p class="paragraph"><span class="p-marker">A</span> When light departs its radiant emitter and encounters physical matter, its behavior changes dramatically. While an electromagnetic wave in an unblemished vacuum maintains an invariant velocity of 300,000 km/s (186,000 miles/s), its passage through tangible substances forces an immediate reduction in propagation speed. In water, light slows to roughly 225,000 km/s; within optical crown glass, it diminishes to 200,000 km/s; and when traversing the dense crystalline lattice of a natural diamond, it drops precipitously to a mere 124,000 km/s. This optical retardation is driven by continuous microscopic interactions between incoming electromagnetic photons and the orbital electron clouds of surrounding atomic particles.</p>
+
+                    <p class="paragraph"><span class="p-marker">B</span> Based on their optical properties, macroscopic materials are grouped into three distinct categories: transparent, translucent, and opaque. Transparent substances—such as polished architectural window glass or pure water—permit virtually all incident light rays to pass directly through without significant deflection, allowing observers on the opposite side to view sharp, undistorted forms. Translucent media, exemplified by frosted bathroom partitions, tinted automotive films, or parchment paper, permit a substantial volume of light to penetrate; however, microscopic irregularities within the material scatter the transmitted rays in disordered paths, rendering background objects blurry and indistinct. Opaque materials, such as solid teak doors or concrete masonry, prohibit any light transmission whatsoever; incoming photons are either absorbed as thermal energy or reflected away from the surface.</p>
+
+                    <!-- SVG 2: Photometric Intensity & Atmospheric Refraction -->
+                    <div class="academic-figure">
+                        <svg viewBox="0 0 760 260" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" style="background:#fcfbf9; border-radius:4px;">
+                            <text x="380" y="22" font-family="'Times New Roman', serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#0b2545">PHOTOMETRIC INTENSITY SPREAD &amp; ATMOSPHERIC SUNSET OPTICS</text>
+                            
+                            <!-- Left: Inverse Square Law Schematic -->
+                            <g transform="translate(10, 35)">
+                                <text x="175" y="18" font-family="'Times New Roman', serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#134074">Inverse-Square Law of Intensity (Intensity ∝ 1 / d²)</text>
+                                <!-- Light Source -->
+                                <circle cx="40" cy="110" r="10" fill="#f59e0b" stroke="#b45309" stroke-width="2" />
+                                <text x="40" y="138" font-family="'Times New Roman', serif" font-size="10" text-anchor="middle" fill="#475569">Source</text>
+                                
+                                <!-- Rays Fan Out -->
+                                <line x1="48" y1="105" x2="310" y2="45" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3,3" />
+                                <line x1="48" y1="115" x2="310" y2="175" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3,3" />
+                                
+                                <!-- Area 1 at 1d -->
+                                <rect x="110" y="90" width="20" height="40" fill="none" stroke="#2563eb" stroke-width="1.8" />
+                                <text x="120" y="80" font-family="'Times New Roman', serif" font-size="10" text-anchor="middle" fill="#1e3a8a">1d</text>
+                                <text x="120" y="148" font-family="'Times New Roman', serif" font-size="9" text-anchor="middle" fill="#1e3a8a">Area = 1A | 100%</text>
+                                
+                                <!-- Area 2 at 2d -->
+                                <rect x="180" y="70" width="40" height="80" fill="none" stroke="#2563eb" stroke-width="1.8" />
+                                <text x="200" y="60" font-family="'Times New Roman', serif" font-size="10" text-anchor="middle" fill="#1e3a8a">2d</text>
+                                <text x="200" y="168" font-family="'Times New Roman', serif" font-size="9" text-anchor="middle" fill="#1e3a8a">Area = 4A | 25%</text>
+
+                                <!-- Area 3 at 3d -->
+                                <rect x="270" y="50" width="60" height="120" fill="none" stroke="#2563eb" stroke-width="1.8" />
+                                <text x="300" y="42" font-family="'Times New Roman', serif" font-size="10" text-anchor="middle" fill="#1e3a8a">3d</text>
+                                <text x="300" y="188" font-family="'Times New Roman', serif" font-size="9" text-anchor="middle" fill="#1e3a8a">Area = 9A | 11.1%</text>
+                            </g>
+
+                            <!-- Vertical Divider -->
+                            <line x1="390" y1="45" x2="390" y2="230" stroke="#cbd5e1" stroke-width="1.5" />
+
+                            <!-- Right: Atmospheric Sunset Refraction -->
+                            <g transform="translate(410, 35)">
+                                <text x="165" y="18" font-family="'Times New Roman', serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#134074">Atmospheric Refraction at Horizon</text>
+                                
+                                <!-- Earth Curvature -->
+                                <path d="M 10 200 Q 165 150 320 200" fill="#94a3b8" stroke="#475569" stroke-width="2" />
+                                <text x="165" y="195" font-family="'Times New Roman', serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">Earth's Surface</text>
+
+                                <!-- Observer -->
+                                <circle cx="165" cy="155" r="4" fill="#0b2545" />
+                                <line x1="165" y1="155" x2="320" y2="120" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3" />
+                                <text x="240" y="130" font-family="'Times New Roman', serif" font-size="9" fill="#475569">Apparent Horizon</text>
+
+                                <!-- Atmosphere layer -->
+                                <path d="M 10 170 Q 165 110 320 170" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="2,2" />
+                                <text x="50" y="145" font-family="'Times New Roman', serif" font-size="9" fill="#0284c7">Atmosphere</text>
+
+                                <!-- Apparent Sun -->
+                                <circle cx="300" cy="115" r="14" fill="#fde047" stroke="#ca8a04" stroke-width="1.5" />
+                                <text x="300" y="95" font-family="'Times New Roman', serif" font-size="9" font-weight="bold" fill="#ca8a04" text-anchor="middle">Apparent Sun (Seen)</text>
+
+                                <!-- Actual Sun (below horizon) -->
+                                <circle cx="300" cy="165" r="14" fill="#f97316" stroke="#c2410c" stroke-width="1.5" />
+                                <text x="300" y="190" font-family="'Times New Roman', serif" font-size="9" font-weight="bold" fill="#c2410c" text-anchor="middle">True Physical Sun</text>
+
+                                <!-- Bent Light Ray -->
+                                <path d="M 286 165 Q 220 145 169 155" fill="none" stroke="#ea580c" stroke-width="2.5" />
+                            </g>
+                        </svg>
+                        <figcaption>Figure 2.1: Left: Dilution of optical energy across geometric distance. Right: Terrestrial atmospheric refraction bending solar rays over the curvature of the Earth.</figcaption>
+                    </div>
+
+                    <p class="paragraph"><span class="p-marker">C</span> A crucial metric in optical physics is intensity, defined quantitatively as the total quantity of radiant energy passing perpendicularly across one square meter of spatial surface in one second. Crucially, intensity is not purely a property of the light bulb or emitter; it is severely governed by the observer’s distance from that source. Because light waves radiating from an isolated point emitter spread uniformly outward across the surface of an expanding sphere, the flux density drops in precise accordance with the inverse-square law (Intensity ∝ 1 / distance<sup>2</sup>). If an observer doubles their physical distance from a lamp (2d), the illumination area expands fourfold (4A), reducing measured light intensity to exactly one-fourth (25%). At three times the distance (3d), the intensity plummets to one-ninth (approximately 11.1%). "Brightness," by contrast, is the subjective neuro-perceptual interpretation of this physical intensity by the human brain.</p>
+
+                    <p class="paragraph"><span class="p-marker">D</span> Beyond spatial dilution, sunlight undergoes profound modifications when entering Earth's gaseous envelope. Terrestrial air contains countless diatomic molecules of nitrogen (N<sub>2</sub>) and oxygen (O<sub>2</sub>), alongside airborne aerosols. When incoming white solar rays strike these microscopic gas molecules, Rayleigh scattering takes place. Rayleigh scattering efficiency is inversely proportional to the fourth power of wavelength (1 / λ<sup>4</sup>), dictating that short wavelengths (violet and blue, approx. 400–450 nm) scatter far more vigorously than long wavelengths (red and orange, approx. 650–700 nm). As blue light is cast in all directions across the atmosphere, the sky radiates its characteristic cerulean hue, while the direct solar disc—stripped of its scattered blue rays—appears warm yellow to terrestrial observers.</p>
+
+                    <p class="paragraph"><span class="p-marker">E</span> Even more astonishing is the geometric deception caused by atmospheric refraction. As solar rays plunge from the vacuum of outer space into the progressively denser gaseous strata of Earth's atmosphere, the light waves steadily decelerate. Entering the curved atmospheric shell at an oblique angle, this continuous deceleration bends the incoming rays downward toward Earth's center of mass. Consequently, when the Sun has physically dropped below the geometric horizon at dusk, its bent light rays continue to arch around the planet’s curvature into an observer’s eyes. Observers on Earth witness the sunset approximately two to three minutes after the physical body of the Sun has already sunk beneath the astronomical horizon line.</p>
+
+                    <p class="paragraph"><span class="p-marker">F</span> Inside the human eye, this incoming light undergoes its final, critical transformation. Light rays initially pass through the cornea—a transparent convex structure on the eye's outer surface that performs the majority of optical refraction. The rays then traverse the dark pupillary aperture, whose diameter is adjusted by the pigmented muscular iris to regulate incoming illumination. Behind the pupil, the crystalline lens fine-tunes focal convergence via the dynamic pulling of ciliary muscles, focusing crisp inverted images directly onto the retina. The retina’s photoreceptors—rod cells for dim illumination and cone cells for chromatic definition—absorb the photon energy, translating electromagnetic waves into neural electrochemical impulses transmitted via the optic nerve to the visual cortex of the brain.</p>
+
+                    <div class="formula-callout">
+                        <strong>Governing Scientific Law: The Photometric Inverse-Square Law</strong>
+                        <div class="formula-display">I = P / (4π × d²) &nbsp; ⟹ &nbsp; (I₁ / I₂) = (d₂ / d₁)²</div>
+                        Where <strong>I</strong> is photometric intensity in Watts per square meter (W/m²), <strong>P</strong> is total luminous radiant power emitted by the source in Watts, and <strong>d</strong> is radial distance in meters from the emitter.
+                    </div>
+                </div>
+            </article>
+
+            <!-- PASSAGE 3 -->
+            <article class="passage-content" id="passage3" style="display:none;">
+                <div class="passage-header">
+                    <span class="passage-tag">Reading Passage 3 • Science Module 3 Lesson 8</span>
+                    <h2>Waveform Dichotomy: Comparative Dynamics of Electromagnetic and Mechanical Energy</h2>
+                    <p class="subtitle">You should spend about 20 minutes on Questions 27–40, which are based on Reading Passage 3 below.</p>
+                </div>
+
+                <div class="passage-body">
+                    <p class="paragraph"><span class="p-marker">A</span> In the classical taxonomy of wave mechanics, physical phenomena that transfer energy across space are partitioned into two fundamentally distinct ontological classes: electromagnetic waves and mechanical waves. While everyday human experience often conflates seeing a lightning bolt with hearing its thunderous accompaniment, these sensory inputs are governed by opposing physical architectures. Light, as established, is an electromagnetic phenomenon composed of oscillating, self-perpetuating electric and magnetic vector fields. Sound, conversely, is an acoustic mechanical wave requiring material inertia and elastic cohesion to propagate.</p>
+
+                    <p class="paragraph"><span class="p-marker">B</span> The quintessential divergence between light and sound lies in their absolute dependence upon a material medium. Acoustic waves are longitudinal vibrations: they transport mechanical energy via sequential collisions of adjacent atoms, generating alternating zones of high-density compression and low-density rarefaction. Deprived of physical atoms—such as in the vacuum of space—sound cannot manifest. A catastrophic cosmic supernova, though releasing unfathomable energy, transpires in absolute silence. Electromagnetic light waves, by contrast, carry their own field mediators and achieve their peak velocity in empty space, where no physical particles exist to disrupt their propagation.</p>
+
+                    <!-- SVG 3: Wave Mechanics Contrast (Light vs. Sound) -->
+                    <div class="academic-figure">
+                        <svg viewBox="0 0 760 250" width="100%" height="240" xmlns="http://www.w3.org/2000/svg" style="background:#fcfbf9; border-radius:4px;">
+                            <text x="380" y="22" font-family="'Times New Roman', serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#0b2545">WAVEFORM DICHOTOMY: TRANSVERSE LIGHT VS. LONGITUDINAL SOUND</text>
+                            
+                            <!-- Top: Transverse Light Wave -->
+                            <g transform="translate(30, 45)">
+                                <text x="0" y="16" font-family="'Times New Roman', serif" font-size="12" font-weight="bold" fill="#0b2545">1. Transverse Light Wave (Electromagnetic Vector Oscillation)</text>
+                                <text x="560" y="16" font-family="'Times New Roman', serif" font-size="11" font-weight="bold" fill="#15803d">Velocity: 300,000,000 m/s</text>
+                                
+                                <path d="M 20 60 Q 60 20, 100 60 T 180 60 T 260 60 T 340 60 T 420 60 T 500 60 T 580 60 T 660 60" fill="none" stroke="#2563eb" stroke-width="2.5" />
+                                <line x1="20" y1="60" x2="680" y2="60" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,4" />
+                                
+                                <!-- Direction Vectors -->
+                                <line x1="100" y1="60" x2="100" y2="20" stroke="#dc2626" stroke-width="2" />
+                                <line x1="180" y1="60" x2="180" y2="100" stroke="#dc2626" stroke-width="2" />
+                                <text x="110" y="35" font-family="'Times New Roman', serif" font-size="10" fill="#dc2626">Crest</text>
+                                <text x="190" y="95" font-family="'Times New Roman', serif" font-size="10" fill="#dc2626">Trough</text>
+                                <text x="340" y="85" font-family="'Times New Roman', serif" font-size="10" font-style="italic" fill="#475569" text-anchor="middle">Particle/Field vibration is PERPENDICULAR to energy propagation ➔</text>
+                            </g>
+
+                            <!-- Bottom: Longitudinal Sound Wave -->
+                            <g transform="translate(30, 150)">
+                                <text x="0" y="16" font-family="'Times New Roman', serif" font-size="12" font-weight="bold" fill="#0b2545">2. Longitudinal Sound Wave (Mechanical Compression &amp; Rarefaction)</text>
+                                <text x="560" y="16" font-family="'Times New Roman', serif" font-size="11" font-weight="bold" fill="#b45309">Velocity: 343 m/s</text>
+
+                                <!-- Dot Clusters for Compressions and Rarefactions -->
+                                <g fill="#1e293b">
+                                    <line x1="40" y1="35" x2="40" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="46" y1="35" x2="46" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="52" y1="35" x2="52" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="80" y1="35" x2="80" y2="65" stroke="#94a3b8" stroke-width="1.5" />
+                                    <line x1="120" y1="35" x2="120" y2="65" stroke="#94a3b8" stroke-width="1.5" />
+                                    <line x1="160" y1="35" x2="160" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="166" y1="35" x2="166" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="172" y1="35" x2="172" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="205" y1="35" x2="205" y2="65" stroke="#94a3b8" stroke-width="1.5" />
+                                    <line x1="245" y1="35" x2="245" y2="65" stroke="#94a3b8" stroke-width="1.5" />
+                                    <line x1="285" y1="35" x2="285" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="291" y1="35" x2="291" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="297" y1="35" x2="297" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="335" y1="35" x2="335" y2="65" stroke="#94a3b8" stroke-width="1.5" />
+                                    <line x1="375" y1="35" x2="375" y2="65" stroke="#94a3b8" stroke-width="1.5" />
+                                    <line x1="415" y1="35" x2="415" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="421" y1="35" x2="421" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="427" y1="35" x2="427" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="465" y1="35" x2="465" y2="65" stroke="#94a3b8" stroke-width="1.5" />
+                                    <line x1="505" y1="35" x2="505" y2="65" stroke="#94a3b8" stroke-width="1.5" />
+                                    <line x1="545" y1="35" x2="545" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="551" y1="35" x2="551" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="557" y1="35" x2="557" y2="65" stroke="#1e293b" stroke-width="3" />
+                                    <line x1="595" y1="35" x2="595" y2="65" stroke="#94a3b8" stroke-width="1.5" />
+                                    <line x1="635" y1="35" x2="635" y2="65" stroke="#94a3b8" stroke-width="1.5" />
+                                </g>
+
+                                <text x="46" y="82" font-family="'Times New Roman', serif" font-size="10" font-weight="bold" fill="#0b2545" text-anchor="middle">Compression</text>
+                                <text x="100" y="82" font-family="'Times New Roman', serif" font-size="10" fill="#64748b" text-anchor="middle">Rarefaction</text>
+                                <text x="340" y="82" font-family="'Times New Roman', serif" font-size="10" font-style="italic" fill="#475569" text-anchor="middle">Particle oscillation is PARALLEL to energy propagation ➔</text>
+                            </g>
+                        </svg>
+                        <figcaption>Figure 3.1: Structural comparison of transverse electromagnetic vibrations versus longitudinal acoustic compression-rarefaction wave cycles.</figcaption>
+                    </div>
+
+                    <p class="paragraph"><span class="p-marker">C</span> A further profound disparity emerges when evaluating how medium density influences propagation velocity. For mechanical sound waves, tighter molecular packing directly accelerates energy transfer. Because sound propagates through physical particle collisions, an acoustic disturbance travels slowest in gases (343 m/s in ambient air), faster in liquids (1,480 m/s in water), and fastest in densely bonded solids (5,960 m/s in steel). In striking contrast, the velocity of light is inversely influenced by material density: electromagnetic waves achieve their unconstrained maximum speed in a vacuum and suffer substantial deceleration as atomic density increases (slowing to 225,000 km/s in water and 200,000 km/s in glass).</p>
+
+                    <p class="paragraph"><span class="p-marker">D</span> The disparity in raw velocity between the two wave species is staggering. In terrestrial atmosphere, light outpaces sound by an approximate factor of 875,000. This immense gulf is familiar to anyone observing a localized thunderstorm: the discharge of electrostatic potential generates a blinding lightning flash and an explosive acoustic shockwave at the exact same instant. Because optical photons cover a one-kilometer distance in approximately 3.3 microseconds, the flash registers on the human retina instantaneously. The acoustic thunderclaps, advancing at a pedestrian 343 m/s, require approximately three full seconds to traverse each kilometer, creating the noticeable perceptual time gap between sight and sound.</p>
+
+                    <p class="paragraph"><span class="p-marker">E</span> The physical mechanisms of sensory detection likewise reflect these deep structural differences. The human ear relies upon a mechanical transduction chain: acoustic pressure differentials cause the tympanic membrane (eardrum) to vibrate, which articulates three delicate middle-ear ossicles that mechanically agitate fluid within the cochlea, exciting microscopic hair cell stereocilia. The human visual system, conversely, operates as an electromagnetic quantum sensor. Retinal rod and cone cells contain photosensitive opsin protein pigments that undergo conformational chemical isomerizations upon the absorption of individual light photons, triggering hyperpolarizing neural cascades without requiring any macroscopic mechanical motion.</p>
+
+                    <p class="paragraph"><span class="p-marker">F</span> Finally, the mechanics of object illumination distinguish optical perception from acoustic perception. An object is classified as luminous if it actively synthesizes and emits its own electromagnetic waves, such as the Sun, chemical combustion flames, or bioluminescent organisms. The overwhelming majority of terrestrial objects, however, are strictly non-luminous: books, furniture, trees, and the Moon generate zero intrinsic visible radiation. Human beings perceive these inert bodies exclusively because external light rays from luminous sources strike their surfaces and undergo diffuse or specular reflection, directing redirected photons into the viewer’s ocular aperture. In acoustic contexts, by contrast, non-emitting bodies do not reflect environmental sound with sufficient coherence to permit detailed passive spatial mapping without active echolocation pulses.</p>
+
+                    <p class="paragraph"><span class="p-marker">G</span> Recognizing this fundamental dichotomy between electromagnetic transverse radiation and mechanical longitudinal vibrations is pivotal across applied science. While submarine oceanography must utilize acoustic sonar systems because electromagnetic radio waves suffer severe absorption in conductive seawater, deep-space astronomical probes communicate with Earth exclusively via microwave and radio frequencies, navigating millions of kilometers of silent vacuum where sound waves cannot exist.</p>
+
+                    <table class="academic-table">
+                        <thead>
+                            <tr>
+                                <th>Operational Criterion</th>
+                                <th>Light Waves (Electromagnetic)</th>
+                                <th>Sound Waves (Mechanical)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Waveform Classification</strong></td>
+                                <td>Transverse (electric/magnetic oscillation)</td>
+                                <td>Longitudinal (compression/rarefaction)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Propagation in Vacuum</strong></td>
+                                <td>Freely propagates (3.0 × 10<sup>8</sup> m/s)</td>
+                                <td>Impossible (requires material particles)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Velocity in Air (20°C)</strong></td>
+                                <td>Approx. 300,000,000 m/s</td>
+                                <td>Approx. 343 m/s</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Effect of Medium Density</strong></td>
+                                <td>Decelerates as density increases</td>
+                                <td>Accelerates as density increases</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Human Sensory Transducer</strong></td>
+                                <td>Retinal rods and cones (chemical)</td>
+                                <td>Cochlear hair cells (mechanical)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Environmental Visibility</strong></td>
+                                <td>Requires emission or surface reflection</td>
+                                <td>Requires active emission or sonar echo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="formula-callout">
+                        <strong>Governing Scientific Law: Acoustic-Optical Velocity Differential &amp; Distance Calculation</strong>
+                        <div class="formula-display">Distance to Storm (meters) ≈ 343 × Elapsed Seconds &nbsp; (or &nbsp; Distance (km) ≈ Seconds / 3)</div>
+                        Because light velocity is approximately 875,000 times greater than sound velocity, the optical transit time across terrestrial distances is practically instantaneous (approx. 0 seconds). Observers can accurately estimate storm distance in kilometers by dividing the seconds counted between lightning flash and thunder by 3.
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Right Pane: Interactive Question Booklet -->
+        <section class="pane pane-questions" id="questionPane">
+
+            <!-- QUESTIONS FOR PASSAGE 1 (Q1 - Q13) -->
+            <div class="question-group" id="qGroupPassage1">
+                <div class="question-section-banner">
+                    <h3>Questions 1–6: True / False / Not Given</h3>
+                    <p>Do the following statements agree with the information given in Reading Passage 1? Write <strong>TRUE</strong> if the statement agrees, <strong>FALSE</strong> if it contradicts, or <strong>NOT GIVEN</strong> if there is no information.</p>
+                </div>
+
+                <!-- Q1 -->
+                <div class="question-card" id="card_q1">
+                    <div class="question-text"><span class="question-num">1.</span> Electromagnetic waves require physical particles such as gas or liquid in order to transfer energy across space.</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q1" value="TRUE"> TRUE</label>
+                        <label class="option-label"><input type="radio" name="q1" value="FALSE"> FALSE</label>
+                        <label class="option-label"><input type="radio" name="q1" value="NOT GIVEN"> NOT GIVEN</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q1">
+                        <strong>Correct Answer: FALSE</strong><br>
+                        <em>Evidence:</em> Paragraph A states that "Unlike sound or oceanic tremors, which depend upon physical matter to propagate, electromagnetic waves... travel freely through completely empty space."
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question-card" id="card_q2">
+                    <div class="question-text"><span class="question-num">2.</span> The frequency of an electromagnetic wave rises as its wavelength becomes shorter.</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q2" value="TRUE"> TRUE</label>
+                        <label class="option-label"><input type="radio" name="q2" value="FALSE"> FALSE</label>
+                        <label class="option-label"><input type="radio" name="q2" value="NOT GIVEN"> NOT GIVEN</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q2">
+                        <strong>Correct Answer: TRUE</strong><br>
+                        <em>Evidence:</em> Paragraph B confirms a strict inverse relationship: "as wavelength becomes progressively shorter, wave frequency necessarily increases."
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question-card" id="card_q3">
+                    <div class="question-text"><span class="question-num">3.</span> Microwaves carry longer wavelengths than commercial radio broadcast waves.</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q3" value="TRUE"> TRUE</label>
+                        <label class="option-label"><input type="radio" name="q3" value="FALSE"> FALSE</label>
+                        <label class="option-label"><input type="radio" name="q3" value="NOT GIVEN"> NOT GIVEN</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q3">
+                        <strong>Correct Answer: FALSE</strong><br>
+                        <em>Evidence:</em> Paragraph C explains that radio waves have wavelengths exceeding 30 cm, whereas microwaves range from 1 mm to 30 cm (shorter than radio waves).
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question-card" id="card_q4">
+                    <div class="question-text"><span class="question-num">4.</span> Human skin detects infrared radiation primarily in the form of thermal heat.</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q4" value="TRUE"> TRUE</label>
+                        <label class="option-label"><input type="radio" name="q4" value="FALSE"> FALSE</label>
+                        <label class="option-label"><input type="radio" name="q4" value="NOT GIVEN"> NOT GIVEN</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q4">
+                        <strong>Correct Answer: TRUE</strong><br>
+                        <em>Evidence:</em> Paragraph D states: "Although invisible to the unaided human eye, infrared radiation is readily detected by human skin as radiant heat."
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question-card" id="card_q5">
+                    <div class="question-text"><span class="question-num">5.</span> Exposure to ultraviolet radiation has been proven to enhance athletic endurance in young adults.</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q5" value="TRUE"> TRUE</label>
+                        <label class="option-label"><input type="radio" name="q5" value="FALSE"> FALSE</label>
+                        <label class="option-label"><input type="radio" name="q5" value="NOT GIVEN"> NOT GIVEN</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q5">
+                        <strong>Correct Answer: NOT GIVEN</strong><br>
+                        <em>Evidence:</em> Paragraph E discusses sunburn, melanin, and ozone shielding, but makes no mention of athletic performance or endurance.
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question-card" id="card_q6">
+                    <div class="question-text"><span class="question-num">6.</span> Gamma rays possess sufficient ionizing power to eliminate malignant tumor tissue when targeted accurately.</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q6" value="TRUE"> TRUE</label>
+                        <label class="option-label"><input type="radio" name="q6" value="FALSE"> FALSE</label>
+                        <label class="option-label"><input type="radio" name="q6" value="NOT GIVEN"> NOT GIVEN</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q6">
+                        <strong>Correct Answer: TRUE</strong><br>
+                        <em>Evidence:</em> Paragraph F affirms that "focused gamma-knife radiation beams are utilized to destroy malignant cancer tumors without requiring invasive surgical incisions."
+                    </div>
+                </div>
+
+                <div class="question-section-banner">
+                    <h3>Questions 7–10: Sentence Completion</h3>
+                    <p>Complete the sentences below. Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.</p>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question-card" id="card_q7">
+                    <div class="question-text"><span class="question-num">7.</span> Celestial and terrestrial bodies that actively generate and emit their own light waves are classified as <input type="text" class="text-input-field" name="q7" id="input_q7" placeholder="Type answer...">.</div>
+                    <div class="explanation-box" id="exp_q7">
+                        <strong>Correct Answer: luminous objects</strong><br>
+                        <em>Evidence:</em> Paragraph A notes that everything we see "originates from luminous objects that emit electromagnetic waves."
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question-card" id="card_q8">
+                    <div class="question-text"><span class="question-num">8.</span> In the visible light spectrum, the color with the longest wavelength and lowest frequency is <input type="text" class="text-input-field" name="q8" id="input_q8" placeholder="Type answer...">.</div>
+                    <div class="explanation-box" id="exp_q8">
+                        <strong>Correct Answer: red light / red</strong><br>
+                        <em>Evidence:</em> Paragraph D notes "700 nanometers (red light, lowest visible frequency)".
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question-card" id="card_q9">
+                    <div class="question-text"><span class="question-num">9.</span> Hazardous solar ultraviolet rays are mostly filtered and absorbed within Earth's stratosphere by the <input type="text" class="text-input-field" name="q9" id="input_q9" placeholder="Type answer...">.</div>
+                    <div class="explanation-box" id="exp_q9">
+                        <strong>Correct Answer: ozone layer</strong><br>
+                        <em>Evidence:</em> Paragraph E specifies: "the gaseous ozone layer (O3) within Earth’s stratosphere absorbs the vast majority of lethal short-wavelength solar UV radiation."
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="question-card" id="card_q10">
+                    <div class="question-text"><span class="question-num">10.</span> In airport baggage terminals, security personnel rely on <input type="text" class="text-input-field" name="q10" id="input_q10" placeholder="Type answer..."> to inspect luggage without manual inspection.</div>
+                    <div class="explanation-box" id="exp_q10">
+                        <strong>Correct Answer: X-rays / X-ray scanners</strong><br>
+                        <em>Evidence:</em> Paragraph E notes: "X-rays are indispensable tools in orthopedic medicine and airport security scanners."
+                    </div>
+                </div>
+
+                <div class="question-section-banner">
+                    <h3>Questions 11–13: Multiple Choice</h3>
+                    <p>Choose the correct letter, <strong>A, B, C, or D</strong>.</p>
+                </div>
+
+                <!-- Q11 -->
+                <div class="question-card" id="card_q11">
+                    <div class="question-text"><span class="question-num">11.</span> Why are radio waves uniquely suited for commercial broadcasting across long overland distances?</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q11" value="A"> A. Their high photon energy penetrates solid granite mountains effortlessly.</label>
+                        <label class="option-label"><input type="radio" name="q11" value="B"> B. Their long wavelengths bend easily around physical terrestrial obstacles.</label>
+                        <label class="option-label"><input type="radio" name="q11" value="C"> C. They travel significantly faster than the universal speed of light.</label>
+                        <label class="option-label"><input type="radio" name="q11" value="D"> D. They are reflected perfectly by the ozone layer down to residential antennas.</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q11">
+                        <strong>Correct Answer: B</strong><br>
+                        <em>Evidence:</em> Paragraph C explains: "Because their elongated wavelengths bend easily around terrestrial obstructions, they serve as the backbone for television broadcasts..."
+                    </div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="question-card" id="card_q12">
+                    <div class="question-text"><span class="question-num">12.</span> What fundamental physical factor prevents human beings from visually detecting infrared radiation?</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q12" value="A"> A. Infrared rays are completely absorbed by the ozone layer before reaching ground level.</label>
+                        <label class="option-label"><input type="radio" name="q12" value="B"> B. The velocity of infrared photons is too rapid for human optical nerves to process.</label>
+                        <label class="option-label"><input type="radio" name="q12" value="C"> C. Retinal photoreceptor cells are biologically tuned only to the 400–700 nm waveband.</label>
+                        <label class="option-label"><input type="radio" name="q12" value="D"> D. Infrared waves have zero energy and therefore cannot trigger chemical reactions.</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q12">
+                        <strong>Correct Answer: C</strong><br>
+                        <em>Evidence:</em> Paragraph D states: "optical visible light occupies the thin intermediate interval between 700 nanometers... and 400 nanometers... the sole window that human retinal photoreceptors are biologically configured to process."
+                    </div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="question-card" id="card_q13">
+                    <div class="question-text"><span class="question-num">13.</span> According to the passage, gamma rays originate primarily from which natural phenomenon?</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q13" value="A"> A. High-energy nuclear events such as radioactive decay and supernovae.</label>
+                        <label class="option-label"><input type="radio" name="q13" value="B"> B. Molecular vibrations within boiling liquids inside microwave ovens.</label>
+                        <label class="option-label"><input type="radio" name="q13" value="C"> C. The rapid deceleration of radio waves passing through dense diamond crystals.</label>
+                        <label class="option-label"><input type="radio" name="q13" value="D"> D. Friction generated between atmospheric nitrogen and oxygen molecules.</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q13">
+                        <strong>Correct Answer: A</strong><br>
+                        <em>Evidence:</em> Paragraph F establishes that "Gamma rays are generated by high-energy nuclear events, including radioactive decay inside atomic nuclei, supernova explosions, and pulsar collisions."
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTIONS FOR PASSAGE 2 (Q14 - Q26) -->
+            <div class="question-group" id="qGroupPassage2" style="display:none;">
+                <div class="question-section-banner">
+                    <h3>Questions 14–18: Matching Information</h3>
+                    <p>Reading Passage 2 has six paragraphs, <strong>A–F</strong>. Which paragraph contains the following information? You may use any letter more than once.</p>
+                </div>
+
+                <!-- Q14 -->
+                <div class="question-card" id="card_q14">
+                    <div class="question-text"><span class="question-num">14.</span> A mathematical law explaining the severe reduction of light energy as distance expands.</div>
+                    <select class="select-input-field" name="q14" id="select_q14">
+                        <option value="">Select Paragraph...</option>
+                        <option value="A">Paragraph A</option>
+                        <option value="B">Paragraph B</option>
+                        <option value="C">Paragraph C</option>
+                        <option value="D">Paragraph D</option>
+                        <option value="E">Paragraph E</option>
+                        <option value="F">Paragraph F</option>
+                    </select>
+                    <div class="explanation-box" id="exp_q14">
+                        <strong>Correct Answer: Paragraph C</strong><br>
+                        <em>Evidence:</em> Paragraph C defines photometric intensity and the inverse-square law (Intensity ∝ 1 / d²).
+                    </div>
+                </div>
+
+                <!-- Q15 -->
+                <div class="question-card" id="card_q15">
+                    <div class="question-text"><span class="question-num">15.</span> An explanation of why sunset observers continue to see the solar disc post-horizon.</div>
+                    <select class="select-input-field" name="q15" id="select_q15">
+                        <option value="">Select Paragraph...</option>
+                        <option value="A">Paragraph A</option>
+                        <option value="B">Paragraph B</option>
+                        <option value="C">Paragraph C</option>
+                        <option value="D">Paragraph D</option>
+                        <option value="E">Paragraph E</option>
+                        <option value="F">Paragraph F</option>
+                    </select>
+                    <div class="explanation-box" id="exp_q15">
+                        <strong>Correct Answer: Paragraph E</strong><br>
+                        <em>Evidence:</em> Paragraph E details atmospheric refraction and how bent rays curve over Earth's surface after the Sun drops below the horizon.
+                    </div>
+                </div>
+
+                <!-- Q16 -->
+                <div class="question-card" id="card_q16">
+                    <div class="question-text"><span class="question-num">16.</span> Numerical data contrasting light speeds across various transparent solids and liquids.</div>
+                    <select class="select-input-field" name="q16" id="select_q16">
+                        <option value="">Select Paragraph...</option>
+                        <option value="A">Paragraph A</option>
+                        <option value="B">Paragraph B</option>
+                        <option value="C">Paragraph C</option>
+                        <option value="D">Paragraph D</option>
+                        <option value="E">Paragraph E</option>
+                        <option value="F">Paragraph F</option>
+                    </select>
+                    <div class="explanation-box" id="exp_q16">
+                        <strong>Correct Answer: Paragraph A</strong><br>
+                        <em>Evidence:</em> Paragraph A provides speeds in water (225,000 km/s), crown glass (200,000 km/s), and diamond (124,000 km/s).
+                    </div>
+                </div>
+
+                <!-- Q17 -->
+                <div class="question-card" id="card_q17">
+                    <div class="question-text"><span class="question-num">17.</span> The biological role of specialized retinal cells in processing daylight colors and night vision.</div>
+                    <select class="select-input-field" name="q17" id="select_q17">
+                        <option value="">Select Paragraph...</option>
+                        <option value="A">Paragraph A</option>
+                        <option value="B">Paragraph B</option>
+                        <option value="C">Paragraph C</option>
+                        <option value="D">Paragraph D</option>
+                        <option value="E">Paragraph E</option>
+                        <option value="F">Paragraph F</option>
+                    </select>
+                    <div class="explanation-box" id="exp_q17">
+                        <strong>Correct Answer: Paragraph F</strong><br>
+                        <em>Evidence:</em> Paragraph F describes photoreceptors: "rod cells for dim illumination and cone cells for chromatic definition".
+                    </div>
+                </div>
+
+                <!-- Q18 -->
+                <div class="question-card" id="card_q18">
+                    <div class="question-text"><span class="question-num">18.</span> The physical cause behind the cerulean appearance of the daytime sky.</div>
+                    <select class="select-input-field" name="q18" id="select_q18">
+                        <option value="">Select Paragraph...</option>
+                        <option value="A">Paragraph A</option>
+                        <option value="B">Paragraph B</option>
+                        <option value="C">Paragraph C</option>
+                        <option value="D">Paragraph D</option>
+                        <option value="E">Paragraph E</option>
+                        <option value="F">Paragraph F</option>
+                    </select>
+                    <div class="explanation-box" id="exp_q18">
+                        <strong>Correct Answer: Paragraph D</strong><br>
+                        <em>Evidence:</em> Paragraph D outlines Rayleigh scattering and why short blue wavelengths scatter in all directions across the atmosphere.
+                    </div>
+                </div>
+
+                <div class="question-section-banner">
+                    <h3>Questions 19–22: Summary Completion</h3>
+                    <p>Complete the summary using the list of words, <strong>A–G</strong>, below.</p>
+                    <div style="background:#ffffff; border:1px solid #cbd5e1; padding:8px 12px; margin-bottom:12px; font-size:0.9rem;">
+                        <strong>A</strong> fourfold &nbsp;|&nbsp; <strong>B</strong> deceleration &nbsp;|&nbsp; <strong>C</strong> opaque &nbsp;|&nbsp; <strong>D</strong> translucent &nbsp;|&nbsp; <strong>E</strong> inverse-square &nbsp;|&nbsp; <strong>F</strong> one-ninth &nbsp;|&nbsp; <strong>G</strong> transparent
+                    </div>
+                </div>
+
+                <!-- Q19 -->
+                <div class="question-card" id="card_q19">
+                    <div class="question-text"><span class="question-num">19.</span> Materials such as frosted panels that permit light transmission while scattering rays to create unfocused images are termed <input type="text" class="text-input-field" style="width:70px;" name="q19" id="input_q19" placeholder="Letter">.</div>
+                    <div class="explanation-box" id="exp_q19">
+                        <strong>Correct Answer: D (translucent)</strong><br>
+                        <em>Evidence:</em> Paragraph B defines translucent substances as those where "microscopic irregularities... scatter the transmitted rays in disordered paths, rendering background objects blurry".
+                    </div>
+                </div>
+
+                <!-- Q20 -->
+                <div class="question-card" id="card_q20">
+                    <div class="question-text"><span class="question-num">20.</span> According to photometric principles, the dilution of radiant flux conforms to the <input type="text" class="text-input-field" style="width:70px;" name="q20" id="input_q20" placeholder="Letter"> law.</div>
+                    <div class="explanation-box" id="exp_q20">
+                        <strong>Correct Answer: E (inverse-square)</strong><br>
+                        <em>Evidence:</em> Paragraph C specifies: "the flux density drops in precise accordance with the inverse-square law (Intensity ∝ 1 / d²)."
+                    </div>
+                </div>
+
+                <!-- Q21 -->
+                <div class="question-card" id="card_q21">
+                    <div class="question-text"><span class="question-num">21.</span> If an observer moves from an initial distance 1d to 3d from an emitter, intensity plummets to <input type="text" class="text-input-field" style="width:70px;" name="q21" id="input_q21" placeholder="Letter"> of its initial value.</div>
+                    <div class="explanation-box" id="exp_q21">
+                        <strong>Correct Answer: F (one-ninth)</strong><br>
+                        <em>Evidence:</em> Paragraph C states: "At three times the distance (3d), the intensity plummets to one-ninth (approximately 11.1%)".
+                    </div>
+                </div>
+
+                <!-- Q22 -->
+                <div class="question-card" id="card_q22">
+                    <div class="question-text"><span class="question-num">22.</span> The physical reason light rays bend downward in Earth's atmosphere during twilight is continuous <input type="text" class="text-input-field" style="width:70px;" name="q22" id="input_q22" placeholder="Letter"> as air density rises.</div>
+                    <div class="explanation-box" id="exp_q22">
+                        <strong>Correct Answer: B (deceleration)</strong><br>
+                        <em>Evidence:</em> Paragraph E explains: "this continuous deceleration bends the incoming rays downward toward Earth's center of mass."
+                    </div>
+                </div>
+
+                <div class="question-section-banner">
+                    <h3>Questions 23–26: Diagram Label Completion</h3>
+                    <p>Label the diagram below. Choose <strong>NO MORE THAN TWO WORDS</strong> from Reading Passage 2 for each answer.</p>
+                </div>
+
+                <!-- Q23 -->
+                <div class="question-card" id="card_q23">
+                    <div class="question-text"><span class="question-num">23.</span> The curved transparent outer eye layer responsible for the greatest fraction of initial refraction: <input type="text" class="text-input-field" name="q23" id="input_q23" placeholder="Type answer...">.</div>
+                    <div class="explanation-box" id="exp_q23">
+                        <strong>Correct Answer: cornea</strong><br>
+                        <em>Evidence:</em> Paragraph F identifies "the cornea—a transparent convex structure on the eye's outer surface that performs the majority of optical refraction."
+                    </div>
+                </div>
+
+                <!-- Q24 -->
+                <div class="question-card" id="card_q24">
+                    <div class="question-text"><span class="question-num">24.</span> The colored muscular ring regulating the opening diameter of the pupil: <input type="text" class="text-input-field" name="q24" id="input_q24" placeholder="Type answer...">.</div>
+                    <div class="explanation-box" id="exp_q24">
+                        <strong>Correct Answer: iris</strong><br>
+                        <em>Evidence:</em> Paragraph F describes the pupillary aperture "whose diameter is adjusted by the pigmented muscular iris".
+                    </div>
+                </div>
+
+                <!-- Q25 -->
+                <div class="question-card" id="card_q25">
+                    <div class="question-text"><span class="question-num">25.</span> The internal eye muscles that dynamically alter the curvature and focal length of the crystalline lens: <input type="text" class="text-input-field" name="q25" id="input_q25" placeholder="Type answer...">.</div>
+                    <div class="explanation-box" id="exp_q25">
+                        <strong>Correct Answer: ciliary muscles</strong><br>
+                        <em>Evidence:</em> Paragraph F states: "the crystalline lens fine-tunes focal convergence via the dynamic pulling of ciliary muscles".
+                    </div>
+                </div>
+
+                <!-- Q26 -->
+                <div class="question-card" id="card_q26">
+                    <div class="question-text"><span class="question-num">26.</span> The neural conduit that channels electrochemical visual signals from retinal cells to the visual cortex: <input type="text" class="text-input-field" name="q26" id="input_q26" placeholder="Type answer...">.</div>
+                    <div class="explanation-box" id="exp_q26">
+                        <strong>Correct Answer: optic nerve</strong><br>
+                        <em>Evidence:</em> Paragraph F concludes that impulses are "transmitted via the optic nerve to the visual cortex of the brain."
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTIONS FOR PASSAGE 3 (Q27 - Q40) -->
+            <div class="question-group" id="qGroupPassage3" style="display:none;">
+                <div class="question-section-banner">
+                    <h3>Questions 27–32: Matching Headings</h3>
+                    <p>Reading Passage 3 has seven paragraphs, <strong>A–G</strong>. Choose the correct heading for paragraphs <strong>B–G</strong> from the list of headings below.</p>
+                    <div style="background:#ffffff; border:1px solid #cbd5e1; padding:8px 12px; margin-bottom:12px; font-size:0.85rem; line-height:1.5;">
+                        <strong>List of Headings:</strong><br>
+                        <strong>i</strong> Molecular Density and Inverted Velocity Trends<br>
+                        <strong>ii</strong> Why Severe Space Explosions Occur in Absolute Silence<br>
+                        <strong>iii</strong> Industrial Uses of Transverse Waves in Deep Mining<br>
+                        <strong>iv</strong> Calculating Storm Distances via the Velocity Disparity<br>
+                        <strong>v</strong> Mechanical vs. Photochemical Sensory Transduction<br>
+                        <strong>vi</strong> The Role of Reflected Photons in Perceiving Inactive Objects<br>
+                        <strong>vii</strong> Strategic Application of Acoustic and Radio Tools in Modern Exploration<br>
+                        <strong>viii</strong> Historical Debates on the Nature of the Luminiferous Ether
+                    </div>
+                </div>
+
+                <!-- Q27 -->
+                <div class="question-card" id="card_q27">
+                    <div class="question-text"><span class="question-num">27.</span> Paragraph B</div>
+                    <select class="select-input-field" name="q27" id="select_q27">
+                        <option value="">Select Heading...</option>
+                        <option value="i">i</option>
+                        <option value="ii">ii</option>
+                        <option value="iii">iii</option>
+                        <option value="iv">iv</option>
+                        <option value="v">v</option>
+                        <option value="vi">vi</option>
+                        <option value="vii">vii</option>
+                        <option value="viii">viii</option>
+                    </select>
+                    <div class="explanation-box" id="exp_q27">
+                        <strong>Correct Answer: ii</strong><br>
+                        <em>Evidence:</em> Paragraph B focuses on medium requirements and why vacuum precludes sound: "A catastrophic cosmic supernova... transpires in absolute silence."
+                    </div>
+                </div>
+
+                <!-- Q28 -->
+                <div class="question-card" id="card_q28">
+                    <div class="question-text"><span class="question-num">28.</span> Paragraph C</div>
+                    <select class="select-input-field" name="q28" id="select_q28">
+                        <option value="">Select Heading...</option>
+                        <option value="i">i</option>
+                        <option value="ii">ii</option>
+                        <option value="iii">iii</option>
+                        <option value="iv">iv</option>
+                        <option value="v">v</option>
+                        <option value="vi">vi</option>
+                        <option value="vii">vii</option>
+                        <option value="viii">viii</option>
+                    </select>
+                    <div class="explanation-box" id="exp_q28">
+                        <strong>Correct Answer: i</strong><br>
+                        <em>Evidence:</em> Paragraph C explains the opposite effects of material density on speed (sound speeds up in dense solids; light slows down).
+                    </div>
+                </div>
+
+                <!-- Q29 -->
+                <div class="question-card" id="card_q29">
+                    <div class="question-text"><span class="question-num">29.</span> Paragraph D</div>
+                    <select class="select-input-field" name="q29" id="select_q29">
+                        <option value="">Select Heading...</option>
+                        <option value="i">i</option>
+                        <option value="ii">ii</option>
+                        <option value="iii">iii</option>
+                        <option value="iv">iv</option>
+                        <option value="v">v</option>
+                        <option value="vi">vi</option>
+                        <option value="vii">vii</option>
+                        <option value="viii">viii</option>
+                    </select>
+                    <div class="explanation-box" id="exp_q29">
+                        <strong>Correct Answer: iv</strong><br>
+                        <em>Evidence:</em> Paragraph D details the 875,000x speed disparity and calculating lightning storm distances using the 3-second delay.
+                    </div>
+                </div>
+
+                <!-- Q30 -->
+                <div class="question-card" id="card_q30">
+                    <div class="question-text"><span class="question-num">30.</span> Paragraph E</div>
+                    <select class="select-input-field" name="q30" id="select_q30">
+                        <option value="">Select Heading...</option>
+                        <option value="i">i</option>
+                        <option value="ii">ii</option>
+                        <option value="iii">iii</option>
+                        <option value="iv">iv</option>
+                        <option value="v">v</option>
+                        <option value="vi">vi</option>
+                        <option value="vii">vii</option>
+                        <option value="viii">viii</option>
+                    </select>
+                    <div class="explanation-box" id="exp_q30">
+                        <strong>Correct Answer: v</strong><br>
+                        <em>Evidence:</em> Paragraph E contrasts the ear's mechanical stereocilia motion with the eye's photochemical retinal opsin isomerizations.
+                    </div>
+                </div>
+
+                <!-- Q31 -->
+                <div class="question-card" id="card_q31">
+                    <div class="question-text"><span class="question-num">31.</span> Paragraph F</div>
+                    <select class="select-input-field" name="q31" id="select_q31">
+                        <option value="">Select Heading...</option>
+                        <option value="i">i</option>
+                        <option value="ii">ii</option>
+                        <option value="iii">iii</option>
+                        <option value="iv">iv</option>
+                        <option value="v">v</option>
+                        <option value="vi">vi</option>
+                        <option value="vii">vii</option>
+                        <option value="viii">viii</option>
+                    </select>
+                    <div class="explanation-box" id="exp_q31">
+                        <strong>Correct Answer: vi</strong><br>
+                        <em>Evidence:</em> Paragraph F details luminous versus non-luminous bodies and why non-emitting objects require surface photon reflection to be seen.
+                    </div>
+                </div>
+
+                <!-- Q32 -->
+                <div class="question-card" id="card_q32">
+                    <div class="question-text"><span class="question-num">32.</span> Paragraph G</div>
+                    <select class="select-input-field" name="q32" id="select_q32">
+                        <option value="">Select Heading...</option>
+                        <option value="i">i</option>
+                        <option value="ii">ii</option>
+                        <option value="iii">iii</option>
+                        <option value="iv">iv</option>
+                        <option value="v">v</option>
+                        <option value="vi">vi</option>
+                        <option value="vii">vii</option>
+                        <option value="viii">viii</option>
+                    </select>
+                    <div class="explanation-box" id="exp_q32">
+                        <strong>Correct Answer: vii</strong><br>
+                        <em>Evidence:</em> Paragraph G explores ocean sonar vs. deep space microwave/radio communication engineering applications.
+                    </div>
+                </div>
+
+                <div class="question-section-banner">
+                    <h3>Questions 33–36: Yes / No / Not Given</h3>
+                    <p>Do the following statements reflect the claims of the author in Reading Passage 3? Write <strong>YES</strong>, <strong>NO</strong>, or <strong>NOT GIVEN</strong>.</p>
+                </div>
+
+                <!-- Q33 -->
+                <div class="question-card" id="card_q33">
+                    <div class="question-text"><span class="question-num">33.</span> Sound waves travel at a faster rate through dense steel metal than through ambient air.</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q33" value="YES"> YES</label>
+                        <label class="option-label"><input type="radio" name="q33" value="NO"> NO</label>
+                        <label class="option-label"><input type="radio" name="q33" value="NOT GIVEN"> NOT GIVEN</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q33">
+                        <strong>Correct Answer: YES</strong><br>
+                        <em>Evidence:</em> Paragraph C states that sound travels at 343 m/s in air and 5,960 m/s in steel.
+                    </div>
+                </div>
+
+                <!-- Q34 -->
+                <div class="question-card" id="card_q34">
+                    <div class="question-text"><span class="question-num">34.</span> The human auditory eardrum translates sound waves into neural signals using photochemical pigments.</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q34" value="YES"> YES</label>
+                        <label class="option-label"><input type="radio" name="q34" value="NO"> NO</label>
+                        <label class="option-label"><input type="radio" name="q34" value="NOT GIVEN"> NOT GIVEN</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q34">
+                        <strong>Correct Answer: NO</strong><br>
+                        <em>Evidence:</em> Paragraph E specifies that the ear operates via mechanical transduction (tympanic vibrations and cochlear hair cells), whereas photochemical opsin pigments belong to the retina.
+                    </div>
+                </div>
+
+                <!-- Q35 -->
+                <div class="question-card" id="card_q35">
+                    <div class="question-text"><span class="question-num">35.</span> Submarines avoid radio frequencies because high-frequency electromagnetic waves are strongly absorbed in seawater.</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q35" value="YES"> YES</label>
+                        <label class="option-label"><input type="radio" name="q35" value="NO"> NO</label>
+                        <label class="option-label"><input type="radio" name="q35" value="NOT GIVEN"> NOT GIVEN</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q35">
+                        <strong>Correct Answer: YES</strong><br>
+                        <em>Evidence:</em> Paragraph G affirms that oceanography utilizes acoustic sonar "because electromagnetic radio waves suffer severe absorption in conductive seawater".
+                    </div>
+                </div>
+
+                <!-- Q36 -->
+                <div class="question-card" id="card_q36">
+                    <div class="question-text"><span class="question-num">36.</span> NASA engineers prefer communicating with lunar landers using fiber optic cables rather than radio antennas.</div>
+                    <div class="options-group">
+                        <label class="option-label"><input type="radio" name="q36" value="YES"> YES</label>
+                        <label class="option-label"><input type="radio" name="q36" value="NO"> NO</label>
+                        <label class="option-label"><input type="radio" name="q36" value="NOT GIVEN"> NOT GIVEN</label>
+                    </div>
+                    <div class="explanation-box" id="exp_q36">
+                        <strong>Correct Answer: NOT GIVEN</strong><br>
+                        <em>Evidence:</em> Paragraph G states that deep-space probes communicate via microwave and radio frequencies, but makes no mention of lunar landers using fiber optic cables.
+                    </div>
+                </div>
+
+                <div class="question-section-banner">
+                    <h3>Questions 37–40: Table Completion</h3>
+                    <p>Complete the table below. Choose <strong>NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> from Reading Passage 3 for each answer.</p>
+                </div>
+
+                <!-- Q37 -->
+                <div class="question-card" id="card_q37">
+                    <div class="question-text"><span class="question-num">37.</span> In a longitudinal sound wave, the high-density regions where particles are pressed together are termed <input type="text" class="text-input-field" name="q37" id="input_q37" placeholder="Type answer...">.</div>
+                    <div class="explanation-box" id="exp_q37">
+                        <strong>Correct Answer: compressions / compression</strong><br>
+                        <em>Evidence:</em> Paragraph B describes "alternating zones of high-density compression and low-density rarefaction."
+                    </div>
+                </div>
+
+                <!-- Q38 -->
+                <div class="question-card" id="card_q38">
+                    <div class="question-text"><span class="question-num">38.</span> When traversing an unconstrained vacuum, light waves maintain an approximate speed of <input type="text" class="text-input-field" name="q38" id="input_q38" placeholder="Type answer..."> meters per second.</div>
+                    <div class="explanation-box" id="exp_q38">
+                        <strong>Correct Answer: 300,000,000 / 3.0 x 10^8</strong><br>
+                        <em>Evidence:</em> Paragraph A and Table 3.1 cite 3.0 × 10<sup>8</sup> m/s or 300,000,000 m/s.
+                    </div>
+                </div>
+
+                <!-- Q39 -->
+                <div class="question-card" id="card_q39">
+                    <div class="question-text"><span class="question-num">39.</span> To calculate the distance to a localized lightning strike, an observer can divide the elapsed seconds between flash and thunder by approximately <input type="text" class="text-input-field" name="q39" id="input_q39" placeholder="Type answer..."> to find the distance in kilometers.</div>
+                    <div class="explanation-box" id="exp_q39">
+                        <strong>Correct Answer: 3 / three</strong><br>
+                        <em>Evidence:</em> The Formula Callout states: "or dividing seconds by 3 to obtain distance in kilometers."
+                    </div>
+                </div>
+
+                <!-- Q40 -->
+                <div class="question-card" id="card_q40">
+                    <div class="question-text"><span class="question-num">40.</span> Everyday items like desks and books that lack self-generated light are defined scientifically as <input type="text" class="text-input-field" name="q40" id="input_q40" placeholder="Type answer..."> bodies.</div>
+                    <div class="explanation-box" id="exp_q40">
+                        <strong>Correct Answer: non-luminous</strong><br>
+                        <em>Evidence:</em> Paragraph F establishes: "The overwhelming majority of terrestrial objects, however, are strictly non-luminous".
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer Status & Question Palette Drawer -->
+    <footer class="test-footer">
+        <div class="palette-container">
+            <span id="footerStatusText">Questions: <strong>0 / 40 Answered</strong></span>
+            <button class="palette-toggle-btn" id="paletteToggleFooter">Open Question Palette</button>
+        </div>
+        <div>
+            <button class="btn btn-secondary" id="resetTestBtn">Reset Form</button>
+            <button class="btn btn-gold" id="submitBottomBtn">Finish &amp; Check Score</button>
+        </div>
+    </footer>
+
+    <!-- Question Palette Floating Grid -->
+    <div class="palette-grid" id="paletteGrid">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e2e8f0; padding-bottom:6px;">
+            <strong style="font-size:0.9rem; color:#0b2545;">Question Navigation (1–40)</strong>
+            <button id="closePaletteBtn" style="background:none; border:none; font-size:1.1rem; cursor:pointer;">&times;</button>
+        </div>
+        <div class="grid-numbers" id="gridButtonsContainer"></div>
+        <div style="margin-top:10px; font-size:0.75rem; color:#64748b; display:flex; gap:12px;">
+            <span><span style="display:inline-block; width:10px; height:10px; background:#134074; border-radius:2px;"></span> Answered</span>
+            <span><span style="display:inline-block; width:10px; height:10px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:2px;"></span> Unanswered</span>
+        </div>
+    </div>
+
+    <!-- Bilingual Vocabulary Slide-over Drawer -->
+    <aside class="vocab-drawer" id="vocabDrawer">
+        <div class="vocab-header">
+            <h3>📖 Bilingual Vocabulary Bank</h3>
+            <button id="closeVocabBtn" style="background:none; border:none; color:#ffffff; font-size:1.3rem; cursor:pointer;">&times;</button>
+        </div>
+        <div class="vocab-list">
+            <div class="vocab-item">
+                <div class="vocab-term">Electromagnetic Spectrum <span class="vocab-thai">(สเปกตรัมคลื่นแม่เหล็กไฟฟ้า)</span></div>
+                <div class="vocab-def">The entire continuous range of electromagnetic waves arranged by frequency and wavelength.</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Luminous Object <span class="vocab-thai">(วัตถุที่มีแสงในตัวเอง)</span></div>
+                <div class="vocab-def">An entity that actively produces and radiates its own light (e.g., Sun, flashlight).</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Non-luminous Object <span class="vocab-thai">(วัตถุที่ไม่ส่องสว่างในตัวเอง)</span></div>
+                <div class="vocab-def">An object that does not produce light and is visible only by reflecting light from another source.</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Wavelength (λ) <span class="vocab-thai">(ความยาวคลื่น)</span></div>
+                <div class="vocab-def">The physical distance between two identical consecutive crests or troughs of a wave.</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Frequency (f) <span class="vocab-thai">(ความถี่)</span></div>
+                <div class="vocab-def">The number of complete wave cycles that pass a given location per second (measured in Hertz, Hz).</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Transparent <span class="vocab-thai">(โปร่งใส)</span></div>
+                <div class="vocab-def">Allowing almost all light to transmit cleanly without scattering, forming sharp, clear images.</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Translucent <span class="vocab-thai">(โปร่งแสง)</span></div>
+                <div class="vocab-def">Allowing light to pass through but scattering rays randomly, causing objects behind to appear blurred.</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Opaque <span class="vocab-thai">(ทึบแสง)</span></div>
+                <div class="vocab-def">Preventing any light transmission; all incident photons are either reflected or absorbed as heat.</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Photometric Intensity <span class="vocab-thai">(ความเข้มแสง)</span></div>
+                <div class="vocab-def">The amount of radiant energy delivered per square meter per second; drops with distance squared (1 / d²).</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Refraction <span class="vocab-thai">(การหักเหของแสง)</span></div>
+                <div class="vocab-def">The bending of a wave's direction when entering a new medium due to an abrupt change in speed.</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Transverse Wave <span class="vocab-thai">(คลื่นตามขวาง)</span></div>
+                <div class="vocab-def">A wave where particle or field oscillations occur perpendicular to the direction of wave travel (e.g., Light).</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Longitudinal Wave <span class="vocab-thai">(คลื่นตามยาว)</span></div>
+                <div class="vocab-def">A wave where particle oscillations occur parallel to the direction of energy propagation (e.g., Sound).</div>
+            </div>
+            <div class="vocab-item">
+                <div class="vocab-term">Compression &amp; Rarefaction <span class="vocab-thai">(ส่วนอัดและส่วนขยาย)</span></div>
+                <div class="vocab-def">Regions of higher particle density (compression) versus lower particle density (rarefaction) in sound waves.</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ========================================================
+         AUTOMATED GRADING REPORT MODAL IN TIMES NEW ROMAN 10PT
+         ======================================================== -->
+    <div class="report-overlay" id="reportOverlay">
+        <div class="report-sheet">
+            
+            <!-- School & Assessment Header -->
+            <div class="report-header-banner">
+                <div class="school-title">Chalermkwansatree School • Phitsanulok, Thailand</div>
+                <div class="program-title">Science Math Bilingual Program (SMBP) • Cambridge Lower Secondary Science</div>
+                <div class="report-main-title">OFFICIAL CANDIDATE EVALUATION &amp; DIAGNOSTIC GRADING REPORT</div>
+                <p style="font-size:9pt; color:#64748b; margin-top:4px;">IELTS Academic Reading Assessment • Paper 1: Foundations of Electromagnetic Radiation and Wave Dynamics</p>
+            </div>
+
+            <!-- Candidate Metadata -->
+            <div class="report-meta-grid">
+                <div class="meta-field">
+                    <strong>Candidate Level</strong>
+                    Grade 9 Bilingual (M.3)
+                </div>
+                <div class="meta-field">
+                    <strong>Assessment Unit</strong>
+                    Module 3 (Lessons 6–8)
+                </div>
+                <div class="meta-field">
+                    <strong>Time Allowed / Used</strong>
+                    <span id="repTimeUsed">60 Mins / 60:00</span>
+                </div>
+                <div class="meta-field">
+                    <strong>Submission Status</strong>
+                    <span id="repSubmitStatus" style="color:#15803d; font-weight:bold;">Finalized &amp; Graded</span>
+                </div>
+            </div>
+
+            <!-- Executive Scorecard Banner -->
+            <div class="executive-scorecard">
+                <div class="band-badge-box">
+                    <div class="band-val" id="repBandScore">Band 7.5</div>
+                    <div class="band-label" id="repBandDescriptor">Good Academic User</div>
+                </div>
+                <div class="band-desc-box">
+                    <h3>Overall Performance Assessment</h3>
+                    <p id="repRawScoreText" style="font-size:10.5pt; font-weight:bold; color:#0b2545;">Overall Raw Score: 33 / 40 (82.5%) • CEFR Level: C1 Equivalent</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="repProgressBar"></div>
+                    </div>
+                    <p id="repExecutiveSummary" style="color:#374151; font-size:9.5pt; margin-top:6px;">
+                        The candidate demonstrates high proficiency in comprehending complex scientific texts on wave mechanics, exhibiting advanced skills in distinguishing electromagnetic from mechanical waves, interpreting photometric formulas, and synthesizing optical attenuation data.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 1: Passage Sub-Scores -->
+            <div class="report-section-title">Section 1: Passage-by-Passage Competency Breakdown</div>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th style="width:20%;">Reading Passage</th>
+                        <th style="width:28%;">Curricular &amp; Scientific Scope</th>
+                        <th style="width:14%;">Questions</th>
+                        <th style="width:14%;">Raw Score</th>
+                        <th style="width:10%;">Accuracy</th>
+                        <th style="width:14%;">Proficiency Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Passage 1</strong></td>
+                        <td>The Electromagnetic Spectrum &amp; Cosmic Energy (Lesson 6)</td>
+                        <td>Q1 – Q13 (13 items)</td>
+                        <td id="repP1Score">11 / 13</td>
+                        <td id="repP1Pct">84.6%</td>
+                        <td><span style="color:#15803d; font-weight:bold;">Distinction</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Passage 2</strong></td>
+                        <td>Light Attenuation &amp; Atmospheric Optics (Lesson 7)</td>
+                        <td>Q14 – Q26 (13 items)</td>
+                        <td id="repP2Score">10 / 13</td>
+                        <td id="repP2Pct">76.9%</td>
+                        <td><span style="color:#0369a1; font-weight:bold;">Proficient</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Passage 3</strong></td>
+                        <td>Acoustic vs. Optical Waveform Dichotomy (Lesson 8)</td>
+                        <td>Q27 – Q40 (14 items)</td>
+                        <td id="repP3Score">12 / 14</td>
+                        <td id="repP3Pct">85.7%</td>
+                        <td><span style="color:#15803d; font-weight:bold;">Distinction</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Section 2: Cognitive Skills Matrix -->
+            <div class="report-section-title">Section 2: Cognitive Reading &amp; Scientific Inquiry Skill Matrix</div>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>Cognitive Skill Category</th>
+                        <th>Target IELTS Question Types</th>
+                        <th>Question Items</th>
+                        <th>Observed Accuracy</th>
+                        <th>Pedagogical Diagnostic Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody id="repSkillsTableBody">
+                    <!-- Populated dynamically by JS -->
+                </tbody>
+            </table>
+
+            <!-- Section 3: Itemized 40-Question Audit -->
+            <div class="report-section-title">Section 3: Comprehensive 40-Question Itemized Audit</div>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th style="width:6%;">Q#</th>
+                        <th style="width:14%;">Passage / Topic</th>
+                        <th style="width:15%;">Question Type</th>
+                        <th style="width:15%;">Your Answer</th>
+                        <th style="width:15%;">Official Key</th>
+                        <th style="width:8%; text-align:center;">Result</th>
+                        <th style="width:27%;">Scientific Evidence &amp; Citation</th>
+                    </tr>
+                </thead>
+                <tbody id="repAuditTableBody">
+                    <!-- Populated dynamically by JS -->
+                </tbody>
+            </table>
+
+            <!-- Pedagogical Recommendations -->
+            <div class="report-section-title">Section 4: Targeted Revision &amp; Bilingual Learning Support</div>
+            <div style="background:#f8fafc; border:1px solid #cbd5e1; padding:12px 16px; border-radius:4px; font-size:9.5pt; line-height:1.5;">
+                <p><strong>Recommendations for Grade 9 Bilingual Science Candidates:</strong></p>
+                <ul style="margin-left:20px; margin-top:6px; color:#374151;">
+                    <li><strong>Wavelength-Frequency Proportionality:</strong> Revisit the inverse relationship (c = f × λ). Remember that higher frequency means shorter wavelength and higher photon energy.</li>
+                    <li><strong>Photometric Inverse-Square Law:</strong> When distance multiplies by 3, illumination area expands to 9 times, and intensity drops to exactly 1/9 (approx. 11.1%).</li>
+                    <li><strong>Wave Speed across Densities:</strong> Keep the inversion clear: light slows down in denser matter (slowest in solids), whereas sound speeds up in denser matter (fastest in solids).</li>
+                </ul>
+            </div>
+
+            <!-- Report Actions -->
+            <div class="report-actions">
+                <button class="btn btn-secondary" id="printReportBtn">🖨️ Print / Save PDF</button>
+                <button class="btn btn-primary" id="returnToReviewBtn">🔍 Review Answers in Split Screen</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Application JavaScript Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Official Answer Key Mapping
+            const ANSWER_KEY = {
+                q1: "FALSE",
+                q2: "TRUE",
+                q3: "FALSE",
+                q4: "TRUE",
+                q5: "NOT GIVEN",
+                q6: "TRUE",
+                q7: ["luminous objects", "luminous object"],
+                q8: ["red light", "red"],
+                q9: ["ozone layer", "the ozone layer"],
+                q10: ["x-rays", "x-ray scanners", "x ray", "x rays"],
+                q11: "B",
+                q12: "C",
+                q13: "A",
+                q14: "C",
+                q15: "E",
+                q16: "A",
+                q17: "F",
+                q18: "D",
+                q19: "D",
+                q20: "E",
+                q21: "F",
+                q22: "B",
+                q23: ["cornea", "the cornea"],
+                q24: ["iris", "the iris"],
+                q25: ["ciliary muscles", "ciliary muscle"],
+                q26: ["optic nerve", "the optic nerve"],
+                q27: "ii",
+                q28: "i",
+                q29: "iv",
+                q30: "v",
+                q31: "vi",
+                q32: "vii",
+                q33: "YES",
+                q34: "NO",
+                q35: "YES",
+                q36: "NOT GIVEN",
+                q37: ["compressions", "compression"],
+                q38: ["300,000,000", "3.0 x 10^8", "300000000", "3 x 10^8", "3.0*10^8"],
+                q39: ["3", "three"],
+                q40: ["non-luminous", "non luminous"]
+            };
+
+            // Metadata for Audit Report
+            const QUESTION_META = {
+                q1: { passage: "P1 (L6)", type: "True / False / Not Given", citation: "Para A: EM waves travel freely through completely empty space without matter." },
+                q2: { passage: "P1 (L6)", type: "True / False / Not Given", citation: "Para B: Inverse relationship: as wavelength shortens, frequency increases." },
+                q3: { passage: "P1 (L6)", type: "True / False / Not Given", citation: "Para C: Radio waves (>30 cm) are longer than microwaves (1 mm–30 cm)." },
+                q4: { passage: "P1 (L6)", type: "True / False / Not Given", citation: "Para D: Infrared radiation is readily detected by human skin as radiant heat." },
+                q5: { passage: "P1 (L6)", type: "True / False / Not Given", citation: "Para E: UV causes sunburns; athletic endurance is not mentioned in the text." },
+                q6: { passage: "P1 (L6)", type: "True / False / Not Given", citation: "Para F: Focused gamma beams destroy malignant cancer tumors non-invasively." },
+                q7: { passage: "P1 (L6)", type: "Sentence Completion", citation: "Para A: Entities that produce their own light are termed luminous objects." },
+                q8: { passage: "P1 (L6)", type: "Sentence Completion", citation: "Para D: Red light (700 nm) has the longest wavelength and lowest frequency." },
+                q9: { passage: "P1 (L6)", type: "Sentence Completion", citation: "Para E: The stratospheric ozone layer absorbs harmful short-wave solar UV." },
+                q10: { passage: "P1 (L6)", type: "Sentence Completion", citation: "Para E: Airport security scanners utilize penetrating X-rays for baggage." },
+                q11: { passage: "P1 (L6)", type: "Multiple Choice", citation: "Para C: Long radio wavelengths bend easily around terrestrial obstacles." },
+                q12: { passage: "P1 (L6)", type: "Multiple Choice", citation: "Para D: Retinal photoreceptors are tuned exclusively to the 400–700 nm band." },
+                q13: { passage: "P1 (L6)", type: "Multiple Choice", citation: "Para F: Gamma rays arise from high-energy nuclear decay and supernovae." },
+                q14: { passage: "P2 (L7)", type: "Matching Information", citation: "Para C: Quantitative inverse-square law (Intensity ∝ 1 / d²)." },
+                q15: { passage: "P2 (L7)", type: "Matching Information", citation: "Para E: Atmospheric refraction bending sunset rays over Earth's curvature." },
+                q16: { passage: "P2 (L7)", type: "Matching Information", citation: "Para A: Comparative light speeds in water, crown glass, and diamond." },
+                q17: { passage: "P2 (L7)", type: "Matching Information", citation: "Para F: Retinal rod cells (dim light) and cone cells (color vision)." },
+                q18: { passage: "P2 (L7)", type: "Matching Information", citation: "Para D: Rayleigh scattering of short blue wavelengths by atmospheric gas." },
+                q19: { passage: "P2 (L7)", type: "Summary Completion", citation: "Para B: Translucent substances scatter transmitted rays, blurring images." },
+                q20: { passage: "P2 (L7)", type: "Summary Completion", citation: "Para C: Photometric flux dilution conforms to the inverse-square law." },
+                q21: { passage: "P2 (L7)", type: "Summary Completion", citation: "Para C: Moving to 3d drops light intensity to one-ninth (11.1%)." },
+                q22: { passage: "P2 (L7)", type: "Summary Completion", citation: "Para E: Progressive deceleration in denser air bends light downward." },
+                q23: { passage: "P2 (L7)", type: "Diagram Label Completion", citation: "Para F: The cornea performs the initial major refraction of light." },
+                q24: { passage: "P2 (L7)", type: "Diagram Label Completion", citation: "Para F: The colored muscular iris adjusts the diameter of the pupil." },
+                q25: { passage: "P2 (L7)", type: "Diagram Label Completion", citation: "Para F: Ciliary muscles pull to change lens shape and focal length." },
+                q26: { passage: "P2 (L7)", type: "Diagram Label Completion", citation: "Para F: The optic nerve channels impulses to the brain's visual cortex." },
+                q27: { passage: "P3 (L8)", type: "Matching Headings", citation: "Para B: Absence of atoms in vacuum means cosmic explosions occur in silence." },
+                q28: { passage: "P3 (L8)", type: "Matching Headings", citation: "Para C: Molecular density speeds up sound but decelerates light." },
+                q29: { passage: "P3 (L8)", type: "Matching Headings", citation: "Para D: Calculating lightning distance using the 3-second sound delay." },
+                q30: { passage: "P3 (L8)", type: "Matching Headings", citation: "Para E: Ear mechanical hair cells vs. eye photochemical retinal opsins." },
+                q31: { passage: "P3 (L8)", type: "Matching Headings", citation: "Para F: Non-luminous objects require reflected photons to be visible." },
+                q32: { passage: "P3 (L8)", type: "Matching Headings", citation: "Para G: Modern uses of acoustic sonar in oceans vs. radio in deep space." },
+                q33: { passage: "P3 (L8)", type: "Yes / No / Not Given", citation: "Para C: Sound travels at 5,960 m/s in steel versus 343 m/s in air." },
+                q34: { passage: "P3 (L8)", type: "Yes / No / Not Given", citation: "Para E: Eardrum operates by mechanical vibration, not photochemical pigments." },
+                q35: { passage: "P3 (L8)", type: "Yes / No / Not Given", citation: "Para G: Radio waves are heavily absorbed in conductive seawater." },
+                q36: { passage: "P3 (L8)", type: "Yes / No / Not Given", citation: "Para G: Deep-space probes use radio; lunar fiber optics are unmentioned." },
+                q37: { passage: "P3 (L8)", type: "Table Completion", citation: "Para B: High-density atomic clusters in sound are called compressions." },
+                q38: { passage: "P3 (L8)", type: "Table Completion", citation: "Para A & Table 3.1: Light in vacuum travels at 300,000,000 m/s." },
+                q39: { passage: "P3 (L8)", type: "Table Completion", citation: "Formula Callout: Divide flash-to-bang seconds by 3 to get distance in km." },
+                q40: { passage: "P3 (L8)", type: "Table Completion", citation: "Para F: Objects that do not generate their own light are non-luminous." }
+            };
+
+            // State management
+            let currentPassage = 1;
+            let timeRemaining = 60 * 60; // 60 minutes = 3600 seconds
+            let timerInterval = null;
+            let testSubmitted = false;
+
+            // Timer display
+            const timerBox = document.getElementById('timerBox');
+            const timerText = document.getElementById('timerText');
+
+            function updateTimer() {
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    timerText.textContent = "00:00";
+                    timerBox.classList.add('timer-warning');
+                    if (!testSubmitted) {
+                        // Automated submission upon time up
+                        generateGradingReport("Time Expired (60:00 Auto-Submission)");
+                    }
+                    return;
+                }
+                
+                // Add warning style when under 5 minutes
+                if (timeRemaining <= 300) {
+                    timerBox.classList.add('timer-warning');
+                }
+
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                timerText.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                timeRemaining--;
+            }
+            timerInterval = setInterval(updateTimer, 1000);
+
+            // Tab switching logic
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const passages = {
+                1: document.getElementById('passage1'),
+                2: document.getElementById('passage2'),
+                3: document.getElementById('passage3')
+            };
+            const questionGroups = {
+                1: document.getElementById('qGroupPassage1'),
+                2: document.getElementById('qGroupPassage2'),
+                3: document.getElementById('qGroupPassage3')
+            };
+
+            function switchPassage(num) {
+                currentPassage = num;
+                tabButtons.forEach(btn => {
+                    if (parseInt(btn.dataset.passage) === num) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                for (let i = 1; i <= 3; i++) {
+                    if (i === num) {
+                        passages[i].style.display = 'block';
+                        questionGroups[i].style.display = 'block';
+                    } else {
+                        passages[i].style.display = 'none';
+                        questionGroups[i].style.display = 'none';
+                    }
+                }
+
+                document.getElementById('passagePane').scrollTop = 0;
+                document.getElementById('questionPane').scrollTop = 0;
+            }
+
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchPassage(parseInt(this.dataset.passage));
+                });
+            });
+
+            // Question Palette Generation (1 to 40)
+            const gridContainer = document.getElementById('gridButtonsContainer');
+            for (let i = 1; i <= 40; i++) {
+                const btn = document.createElement('button');
+                btn.className = 'grid-btn';
+                btn.id = `palette_btn_${i}`;
+                btn.textContent = i;
+                btn.addEventListener('click', () => {
+                    navigateToQuestion(i);
+                });
+                gridContainer.appendChild(btn);
+            }
+
+            function navigateToQuestion(qNum) {
+                let targetPassage = 1;
+                if (qNum >= 14 && qNum <= 26) targetPassage = 2;
+                if (qNum >= 27 && qNum <= 40) targetPassage = 3;
+
+                if (currentPassage !== targetPassage) {
+                    switchPassage(targetPassage);
+                }
+
+                setTimeout(() => {
+                    const card = document.getElementById(`card_q${qNum}`);
+                    if (card) {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        card.style.borderColor = '#c59b27';
+                        setTimeout(() => { card.style.borderColor = ''; }, 1500);
+                    }
+                }, 50);
+
+                document.getElementById('paletteGrid').classList.remove('open');
+            }
+
+            // Palette Toggle Handlers
+            const paletteGrid = document.getElementById('paletteGrid');
+            document.getElementById('openPaletteBtn').addEventListener('click', () => {
+                paletteGrid.classList.toggle('open');
+            });
+            document.getElementById('paletteToggleFooter').addEventListener('click', () => {
+                paletteGrid.classList.toggle('open');
+            });
+            document.getElementById('closePaletteBtn').addEventListener('click', () => {
+                paletteGrid.classList.remove('open');
+            });
+
+            // Vocabulary Drawer Handlers
+            const vocabDrawer = document.getElementById('vocabDrawer');
+            document.getElementById('vocabToggleBtn').addEventListener('click', () => {
+                vocabDrawer.classList.toggle('open');
+            });
+            document.getElementById('closeVocabBtn').addEventListener('click', () => {
+                vocabDrawer.classList.remove('open');
+            });
+
+            // Tracking answer state
+            function getAnswer(qNum) {
+                const radios = document.getElementsByName(`q${qNum}`);
+                if (radios.length > 0) {
+                    for (let r of radios) {
+                        if (r.checked) return r.value.trim();
+                    }
+                }
+                const textInput = document.getElementById(`input_q${qNum}`);
+                if (textInput) {
+                    return textInput.value.trim();
+                }
+                const select = document.getElementById(`select_q${qNum}`);
+                if (select) {
+                    return select.value.trim();
+                }
+                return "";
+            }
+
+            function updateProgress() {
+                let answeredCount = 0;
+                for (let i = 1; i <= 40; i++) {
+                    const ans = getAnswer(i);
+                    const gridBtn = document.getElementById(`palette_btn_${i}`);
+                    const card = document.getElementById(`card_q${i}`);
+
+                    if (ans !== "") {
+                        answeredCount++;
+                        if (gridBtn) gridBtn.classList.add('filled');
+                        if (card) card.classList.add('answered');
+                    } else {
+                        if (gridBtn) gridBtn.classList.remove('filled');
+                        if (card) card.classList.remove('answered');
+                    }
+                }
+
+                document.getElementById('progressBadge').textContent = `${answeredCount} / 40 Answered`;
+                document.getElementById('footerStatusText').innerHTML = `Questions: <strong>${answeredCount} / 40 Answered</strong>`;
+            }
+
+            document.querySelectorAll('input[type="radio"]').forEach(el => el.addEventListener('change', updateProgress));
+            document.querySelectorAll('input[type="text"]').forEach(el => el.addEventListener('input', updateProgress));
+            document.querySelectorAll('select').forEach(el => el.addEventListener('change', updateProgress));
+
+            // ========================================================
+            // AUTOMATED GRADING & REPORT GENERATION ENGINE (10pt UI)
+            // ========================================================
+            function generateGradingReport(submissionReason = "Manual Submission by Candidate") {
+                testSubmitted = true;
+                clearInterval(timerInterval);
+
+                let rawScore = 0;
+                let p1Score = 0;
+                let p2Score = 0;
+                let p3Score = 0;
+
+                // Category scores for Skills Matrix
+                const skillsData = {
+                    "Factual Detail Scanning (True/False/Not Given)": { total: 6, correct: 0, items: "Q1–Q6" },
+                    "Scientific Lexicon (Sentence Completion)": { total: 4, correct: 0, items: "Q7–Q10" },
+                    "Conceptual Deduction (Multiple Choice)": { total: 3, correct: 0, items: "Q11–Q13" },
+                    "Information Sourcing (Matching Information)": { total: 5, correct: 0, items: "Q14–Q18" },
+                    "Process Synthesis (Summary Completion)": { total: 4, correct: 0, items: "Q19–Q22" },
+                    "Anatomical Schematic (Diagram Labels)": { total: 4, correct: 0, items: "Q23–Q26" },
+                    "Thematic Paragraph Analysis (Headings)": { total: 6, correct: 0, items: "Q27–Q32" },
+                    "Authorial Claims (Yes/No/Not Given)": { total: 4, correct: 0, items: "Q33–Q36" },
+                    "Comparative Data Synthesis (Table Completion)": { total: 4, correct: 0, items: "Q37–Q40" }
+                };
+
+                const auditRows = [];
+
+                for (let i = 1; i <= 40; i++) {
+                    const userAns = getAnswer(i);
+                    const userAnsLower = userAns.toLowerCase();
+                    const correctAns = ANSWER_KEY[`q${i}`];
+                    let isCorrect = false;
+
+                    if (Array.isArray(correctAns)) {
+                        isCorrect = correctAns.some(val => val.toLowerCase() === userAnsLower);
+                    } else {
+                        isCorrect = (correctAns.toLowerCase() === userAnsLower);
+                    }
+
+                    if (isCorrect) {
+                        rawScore++;
+                        if (i <= 13) p1Score++;
+                        else if (i <= 26) p2Score++;
+                        else p3Score++;
+                    }
+
+                    // Tally skill categories
+                    if (i <= 6) { if (isCorrect) skillsData["Factual Detail Scanning (True/False/Not Given)"].correct++; }
+                    else if (i <= 10) { if (isCorrect) skillsData["Scientific Lexicon (Sentence Completion)"].correct++; }
+                    else if (i <= 13) { if (isCorrect) skillsData["Conceptual Deduction (Multiple Choice)"].correct++; }
+                    else if (i <= 18) { if (isCorrect) skillsData["Information Sourcing (Matching Information)"].correct++; }
+                    else if (i <= 22) { if (isCorrect) skillsData["Process Synthesis (Summary Completion)"].correct++; }
+                    else if (i <= 26) { if (isCorrect) skillsData["Anatomical Schematic (Diagram Labels)"].correct++; }
+                    else if (i <= 32) { if (isCorrect) skillsData["Thematic Paragraph Analysis (Headings)"].correct++; }
+                    else if (i <= 36) { if (isCorrect) skillsData["Authorial Claims (Yes/No/Not Given)"].correct++; }
+                    else { if (isCorrect) skillsData["Comparative Data Synthesis (Table Completion)"].correct++; }
+
+                    // Card styling for split-screen review
+                    const card = document.getElementById(`card_q${i}`);
+                    if (card) {
+                        if (isCorrect) {
+                            card.classList.add('user-correct');
+                            card.classList.remove('user-incorrect');
+                        } else {
+                            card.classList.add('user-incorrect');
+                            card.classList.remove('user-correct');
+                        }
+                    }
+
+                    // Build audit row
+                    const meta = QUESTION_META[`q${i}`];
+                    const officialDisplay = Array.isArray(correctAns) ? correctAns.join(" / ") : correctAns;
+                    const candidateDisplay = userAns === "" ? "<em style='color:#94a3b8;'>(No Answer)</em>" : userAns;
+                    const resultBadge = isCorrect ? "<span class='badge-correct'>✓ Correct</span>" : "<span class='badge-incorrect'>✗ Incorrect</span>";
+                    const rowClass = isCorrect ? "audit-correct" : "audit-incorrect";
+
+                    auditRows.push(`
+                        <tr class="${rowClass}">
+                            <td><strong>${i}</strong></td>
+                            <td>${meta.passage}</td>
+                            <td>${meta.type}</td>
+                            <td>${candidateDisplay}</td>
+                            <td><strong>${officialDisplay}</strong></td>
+                            <td style="text-align:center;">${resultBadge}</td>
+                            <td style="font-size:9pt; line-height:1.3;">${meta.citation}</td>
+                        </tr>
+                    `);
+                }
+
+                // IELTS Band Score Scale
+                let bandScore = "1.0";
+                let descriptor = "Non User";
+                let cefr = "A1";
+
+                if (rawScore >= 39) { bandScore = "9.0"; descriptor = "Expert User"; cefr = "C2 Mastery"; }
+                else if (rawScore >= 37) { bandScore = "8.5"; descriptor = "Very Good User"; cefr = "C2"; }
+                else if (rawScore >= 35) { bandScore = "8.0"; descriptor = "Very Good User"; cefr = "C1+"; }
+                else if (rawScore >= 33) { bandScore = "7.5"; descriptor = "Good Academic User"; cefr = "C1"; }
+                else if (rawScore >= 30) { bandScore = "7.0"; descriptor = "Good User"; cefr = "B2+"; }
+                else if (rawScore >= 27) { bandScore = "6.5"; descriptor = "Competent User"; cefr = "B2"; }
+                else if (rawScore >= 23) { bandScore = "6.0"; descriptor = "Competent User"; cefr = "B2"; }
+                else if (rawScore >= 19) { bandScore = "5.5"; descriptor = "Modest User"; cefr = "B1+"; }
+                else if (rawScore >= 15) { bandScore = "5.0"; descriptor = "Modest User"; cefr = "B1"; }
+                else if (rawScore >= 12) { bandScore = "4.5"; descriptor = "Borderline User"; cefr = "A2+"; }
+                else if (rawScore >= 9) { bandScore = "4.0"; descriptor = "Limited User"; cefr = "A2"; }
+                else if (rawScore >= 6) { bandScore = "3.5"; descriptor = "Extremely Limited"; cefr = "A1+"; }
+                else if (rawScore >= 4) { bandScore = "3.0"; descriptor = "Intermittent User"; cefr = "A1"; }
+
+                const percentage = ((rawScore / 40) * 100).toFixed(1);
+                const timeUsedSeconds = (60 * 60) - Math.max(0, timeRemaining);
+                const usedMins = Math.floor(timeUsedSeconds / 60);
+                const usedSecs = timeUsedSeconds % 60;
+                const timeUsedStr = `${usedMins}m ${usedSecs}s (${submissionReason})`;
+
+                // Populate Scorecard Elements
+                document.getElementById('repBandScore').textContent = `Band ${bandScore}`;
+                document.getElementById('repBandDescriptor').textContent = descriptor;
+                document.getElementById('repRawScoreText').textContent = `Overall Raw Score: ${rawScore} / 40 (${percentage}%) • CEFR Level: ${cefr}`;
+                document.getElementById('repProgressBar').style.width = `${percentage}%`;
+                document.getElementById('repTimeUsed').textContent = timeUsedStr;
+
+                // Populate Sub-Scores
+                document.getElementById('repP1Score').textContent = `${p1Score} / 13`;
+                document.getElementById('repP1Pct').textContent = `${((p1Score / 13) * 100).toFixed(1)}%`;
+                document.getElementById('repP2Score').textContent = `${p2Score} / 13`;
+                document.getElementById('repP2Pct').textContent = `${((p2Score / 13) * 100).toFixed(1)}%`;
+                document.getElementById('repP3Score').textContent = `${p3Score} / 14`;
+                document.getElementById('repP3Pct').textContent = `${((p3Score / 14) * 100).toFixed(1)}%`;
+
+                // Populate Cognitive Skills Table
+                const skillsTbody = document.getElementById('repSkillsTableBody');
+                skillsTbody.innerHTML = "";
+                for (const [skillName, data] of Object.entries(skillsData)) {
+                    const skillPct = ((data.correct / data.total) * 100).toFixed(0);
+                    let statusLabel = "";
+                    if (skillPct >= 80) statusLabel = "<span style='color:#15803d; font-weight:bold;'>High Competence</span>";
+                    else if (skillPct >= 60) statusLabel = "<span style='color:#0369a1;'>Satisfactory</span>";
+                    else statusLabel = "<span style='color:#b91c1c;'>Target for Reinforcement</span>";
+
+                    skillsTbody.innerHTML += `
+                        <tr>
+                            <td><strong>${skillName}</strong></td>
+                            <td>${data.items}</td>
+                            <td>${data.total} items</td>
+                            <td><strong>${data.correct} / ${data.total} (${skillPct}%)</strong></td>
+                            <td>${statusLabel}</td>
+                        </tr>
+                    `;
+                }
+
+                // Populate Audit Table
+                document.getElementById('repAuditTableBody').innerHTML = auditRows.join("");
+
+                // Open Report Modal
+                document.getElementById('reportOverlay').classList.add('open');
+            }
+
+            // Submission triggers
+            document.getElementById('submitTopBtn').addEventListener('click', () => generateGradingReport("Submitted via Top Control Bar"));
+            document.getElementById('submitBottomBtn').addEventListener('click', () => generateGradingReport("Submitted via Footer Control"));
+
+            // Close report and switch to review mode
+            document.getElementById('returnToReviewBtn').addEventListener('click', () => {
+                document.getElementById('reportOverlay').classList.remove('open');
+                document.body.classList.add('review-mode');
+                switchPassage(1);
+            });
+
+            // Print report
+            document.getElementById('printReportBtn').addEventListener('click', () => {
+                window.print();
+            });
+
+            // Reset test form (toast notification)
+            document.getElementById('resetTestBtn').addEventListener('click', () => {
+                document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+                document.querySelectorAll('input[type="text"]').forEach(t => t.value = "");
+                document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+                document.querySelectorAll('.question-card').forEach(c => {
+                    c.classList.remove('answered', 'user-correct', 'user-incorrect');
+                });
+                document.body.classList.remove('review-mode');
+                testSubmitted = false;
+                timeRemaining = 60 * 60;
+                timerBox.classList.remove('timer-warning');
+                updateProgress();
+
+                const toast = document.createElement('div');
+                toast.textContent = 'Examination workspace reset. 60:00 timer restarted.';
+                toast.style.cssText = 'position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:#0b2545;color:#fff;padding:8px 16px;border-radius:4px;font-size:0.9rem;z-index:999;box-shadow:0 2px 8px rgba(0,0,0,0.2);';
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2500);
+            });
+
+            // Initial progress setup
+            updateProgress();
+        });
+    </script>
+</body>
+</html>
